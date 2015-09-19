@@ -1,32 +1,8 @@
-[GULP WORFLOW](http://harrypujols.github.io/gulp)
+[URINAL CHESS]
 ==============
 
-[![David Link](https://david-dm.org/harrypujols/gulp.png)](https://david-dm.org/harrypujols/gulp)
+[![David Link](https://david-dm.org/harrypujols/gulp.png)](https://david-dm.org/harrypujols/urinal-chess)
 
-## Installation
-- Install [node.js](http://nodejs.org)
-- `$ npm install -g bower`
-- `$ npm install -g gulp`
+A game where your number one priority is Number One.
 
-## Initial Setup
-
-- `$ cd </path/to/this/folder>/gulp`
-- `$ bower install`
-- `$ npm install`
-
-## Run Dev
-
-- `$ gulp`
-
-## Update Packages
-
-I am using [npm-check-updates](https://www.npmjs.org/package/npm-check-updates)
-
-### To Install
-
-- `npm install -g npm-check-updates`
-
-### To Update
-
-- `npm-check-updates -u`
-- `npm install`
+Coming soon.
