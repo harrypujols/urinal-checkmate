@@ -25,3 +25,8 @@ $black: #000000;
 .man {
 	fill: $black;
 }
+
+[data-drag=true] {
+	cursor: -webkit-grab;
+	cursor: -moz-grab;
+}
