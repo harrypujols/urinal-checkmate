@@ -1,0 +1,8 @@
+{
+  "name": "angular",
+  "version": "0.0.0",
+  "devDependencies": {
+    "browser-sync": "^2.9.2",
+    "gulp": "^3.9.0"
+  }
+}
