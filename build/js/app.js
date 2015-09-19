@@ -1,6 +1,6 @@
 console.log('Hello from the console!')
 
-var app = angular.module('urinal-chess', []);
+var app = angular.module('urinal-chess', ['ngDragDrop']);
 
 app.controller('uctrl', function($scope, $http) {
 

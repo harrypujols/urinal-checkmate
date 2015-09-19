@@ -394,9 +394,26 @@ th {
   padding: 0;
 }
 
+/* Variables
+   ========================================================================== */
 /* User Styles
    ========================================================================== */
 .container {
   max-width: 780px;
   margin: 0 auto;
+}
+
+.headline {
+  font-size: 100px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.regular-man {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.man {
+  fill: black;
 }
