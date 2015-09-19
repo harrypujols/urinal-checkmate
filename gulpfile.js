@@ -6,6 +6,7 @@ var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
     plumber     = require('gulp-plumber'),
     notify      = require('gulp-notify'),
+    del         = require('del'),
     browsersync = require('browser-sync').create(),
     deploy      = require('gulp-gh-pages');
 
@@ -82,6 +83,13 @@ gulp.task('server', function() {
       baseDir: './build'
     }
   });
+});
+
+// --- Clean ---
+gulp.task('clean', function () {
+  return del([
+    './build/*'
+  ]);
 });
 
 // --- Deploy ---

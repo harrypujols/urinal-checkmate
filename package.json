@@ -4,7 +4,8 @@
   "description": "Number One Game",
   "devDependencies": {
     "browser-sync": "^2.9.1",
-    "gulp": "3.9.0",
+    "del": "^2.0.2",
+    "gulp": "^3.9.0",
     "gulp-compass": "^2.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-gh-pages": "0.5.2",
