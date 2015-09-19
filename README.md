@@ -1,5 +1,5 @@
-[URINAL CHESS]
-==============
+URINAL CHESS
+============
 
 [![David Link](https://david-dm.org/harrypujols/gulp.png)](https://david-dm.org/harrypujols/urinal-chess)
 
