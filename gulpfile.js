@@ -12,12 +12,12 @@ var gulp        = require('gulp'),
 
 // --- Compass ---
 gulp.task('compass', function() {
-    gulp.src('./dev/styles/*.scss')
+    gulp.src('./dev/sass/*.scss')
     	.pipe(plumber())
         .pipe(compass({
             config_file: './config.rb',
             css: './build/css',
-            sass: './dev/styles',
+            sass: './dev/sass',
             image: './build/img'
         }))
 		.on('error', notify.onError({
@@ -73,7 +73,7 @@ gulp.task('watch', function() {
     gulp.watch(['./dev/*.html'], ['html']);
     gulp.watch(['./dev/js/*.js'], ['js']);
     gulp.watch(['./dev/data/*.json'], ['data']);
-    gulp.watch('./dev/styles/*.scss', ['compass']);
+    gulp.watch('./dev/sass/*.scss', ['compass']);
 });
 
 // --- Server ---

@@ -18,12 +18,20 @@ $black: #000000;
 	text-align: center;
 }
 
+.man {
+	fill: $black;
+}
+
+.restroom {
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+}
+
 .regular-man {
 	width: 100px;
 	margin: 0 auto;
-}
-.man {
-	fill: $black;
 }
 
 [data-drag=true] {
