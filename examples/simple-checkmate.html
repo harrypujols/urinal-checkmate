@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ngDraggable</title>
+</head>
+<body ng-app="ExampleApp">
+
+<div class="container" ng-controller="MainCtrl">
+
+    <div class="row">
+        <h1>ngDraggable Example</h1>
+    </div>
+
+    <div ng-if="true" ng-drag="true" ng-drag-data="{name:'test'}" data-allow-transform="true">MAN</div>
+
+    <hr/>
+
+    <div ng-drop="true" ng-drop-success="onDropComplete1($data,$event)">
+      <span class="title">URINAL #1</span>
+    </div>
+
+    <div ng-drop="true" ng-drop-success="onDropComplete2($data,$event)">
+        <span class="title">URINAL #2</span>
+    </div>
+
+    <div ng-drop="true" ng-drop-success="onDropComplete3($data,$event)">
+        <span class="title">URINAL #3</span>
+    </div>
+
+    <hr>
+
+
+</div>
+<footer style="margin-top:2000px;">footer</footer>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+<script src="ngDraggable.js"></script>
+<script>
+    angular.module('ExampleApp', ['ngDraggable']).
+            controller('MainCtrl', function ($scope) {
+
+                $scope.centerAnchor = true;
+
+                $scope.toggleCenterAnchor = function () {
+                    $scope.centerAnchor = !$scope.centerAnchor
+                }
+
+                var onDraggableEvent = function (evt, data) {
+
+                }
+
+                $scope.$on('draggable:start', onDraggableEvent);
+
+
+                $scope.$on('draggable:end', onDraggableEvent);
+
+                $scope.droppedObjects1 = [];
+                $scope.droppedObjects2 = [];
+
+                $scope.onDropComplete1 = function (data, evt) {
+                  console.log('drop success 1');
+                }
+                $scope.onDragSuccess1 = function (data, evt) {
+                  console.log('drag success 1');
+                }
+                $scope.onDragSuccess2 = function (data, evt) {
+                  console.log('drag success 2');
+                }
+                $scope.onDropComplete2 = function (data, evt) {
+                  console.log('drop success 2');
+                  console.log('checkmate');
+                }
+
+                $scope.onDragSuccess3 = function (data, evt) {
+                  console.log('drag success 3');
+                }
+                $scope.onDropComplete3 = function (data, evt) {
+                  console.log('drop success 3');
+                }
+            });
+</script>
+</body>
+</html>
