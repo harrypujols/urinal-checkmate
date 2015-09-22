@@ -8,7 +8,7 @@
 <div class="container" ng-controller="MainCtrl">
 
     <div class="row">
-        <h1>ngDraggable Example</h1>
+        <h1>{{ message }}</h1>
     </div>
 
     <div ng-if="true" ng-drag="true" ng-drag-data="{name:'test'}" data-allow-transform="true">MAN</div>
@@ -41,6 +41,8 @@
 
                 $scope.centerAnchor = true;
 
+                $scope.message = 'Urinal Chess';
+
                 $scope.toggleCenterAnchor = function () {
                     $scope.centerAnchor = !$scope.centerAnchor
                 }
@@ -59,6 +61,7 @@
 
                 $scope.onDropComplete1 = function (data, evt) {
                   console.log('drop success 1');
+                  $scope.message = 'Urinal Chess';
                 }
                 $scope.onDragSuccess1 = function (data, evt) {
                   console.log('drag success 1');
@@ -69,6 +72,7 @@
                 $scope.onDropComplete2 = function (data, evt) {
                   console.log('drop success 2');
                   console.log('checkmate');
+                  $scope.message = 'Checkmate!';
                 }
 
                 $scope.onDragSuccess3 = function (data, evt) {
@@ -76,6 +80,7 @@
                 }
                 $scope.onDropComplete3 = function (data, evt) {
                   console.log('drop success 3');
+                  $scope.message = 'Urinal Chess';
                 }
             });
 </script>
