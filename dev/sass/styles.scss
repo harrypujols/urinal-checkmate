@@ -15,29 +15,14 @@ $man-width: 60px;
  }
 
 .container {
-    max-width: 780px;
-    margin: 0 auto;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
-.headline {
+.message {
 	font-size: 100px;
 	text-transform: uppercase;
 	text-align: center;
-}
-
-.man {
-	fill: $black;
-}
-
-.the-man {
-  width: $man-width;
-  height: auto;
-}
-
-
-.the-urinal {
-  width: $urinal-width;
-  height: auto;
 }
 
 .restroom {
@@ -52,12 +37,14 @@ $man-width: 60px;
   }
 }
 
-.man {
-	width: $man-width;
-	margin: 0 auto;
+.urinal {
+  width: $urinal-width;
+  height: auto;
 }
 
-[data-drag=true] {
-	cursor: -webkit-grab;
-	cursor: -moz-grab;
+.man {
+	width: $man-width;
+  height: auto;
+	margin: 0 auto;
+  fill: $black;
 }
