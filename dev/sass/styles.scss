@@ -25,6 +25,17 @@ $man-width: 60px;
 	text-align: center;
 }
 
+#drag {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+
+  &.dragging {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    visibility: hidden;
+  }
+}
+
 .restroom {
   @extend %clearfix;
   padding: 0;

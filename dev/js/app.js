@@ -21,3 +21,11 @@ function drop(ev, target) {
     $('#message').text('wrong');
   }
 }
+
+$('#drag')
+.mouseup(function() {
+  $(this).addClass('dragging');
+})
+.mousedown(function() {
+  $(this).removeClass('dragging');
+});
