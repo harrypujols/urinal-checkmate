@@ -1,12 +1,31 @@
-console.log('Hello from the console!')
+console.log('app is running');
+$('#message').text('u chess');
+$('.man').load('/img/man.svg');
 
-var app = angular.module('urinal-chess', ['ngDragDrop']);
+function allowDrop(ev) {
+  ev.preventDefault();
+}
 
-app.controller('uctrl', function($scope, $http) {
+function drag(ev) {
+  ev.dataTransfer.setData('text', ev.target.id);
+}
 
-    $http.get('/data/data.json')
-    .then(function(result){
-      $scope.json = result.data;
-    });
+function drop(ev, target) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData('text');
+  ev.target.appendChild(document.getElementById(data));
 
+  if (target.id == 'correct') {
+    $('#message').text('checkmate');
+  } else {
+    $('#message').text('wrong');
+  }
+}
+
+$('#drag')
+.mouseup(function() {
+  $(this).addClass('dragging');
+})
+.mousedown(function() {
+  $(this).removeClass('dragging');
 });

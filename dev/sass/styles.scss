@@ -3,38 +3,60 @@
 /* Variables
    ========================================================================== */
 $black: #000000;
+$urinal-size: 100px;
+$man-width: 60px;
 
 /* User Styles
    ========================================================================== */
+ %clearfix:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
 
 .container {
-    max-width: 780px;
-    margin: 0 auto;
+  max-width: 780px;
+  margin: 0 auto;
 }
 
-.headline {
+#message {
 	font-size: 100px;
 	text-transform: uppercase;
 	text-align: center;
 }
 
-.man {
-	fill: $black;
-}
+#drag {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
 
-.restroom {
-  li {
-    display: inline-block;
-    margin-right: 20px;
+  &.dragging {
+    cursor: -webkit-grabbing;
+    cursor: -moz-grabbing;
+    visibility: hidden;
   }
 }
 
-.regular-man {
-	width: 100px;
-	margin: 0 auto;
+.restroom {
+  @extend %clearfix;
+  padding: 0;
+  list-style: none;
+  width: $urinal-size * 3;
+  margin: 0 auto;
+
+  li {
+    float: left;
+  }
 }
 
-[data-drag=true] {
-	cursor: -webkit-grab;
-	cursor: -moz-grab;
+.urinal {
+  background: image-url('urinal.svg') no-repeat;
+  width: $urinal-size;
+  height: $urinal-size;
+}
+
+.man {
+	width: $man-width;
+  height: auto;
+	margin: 0 auto;
+  fill: $black;
 }
