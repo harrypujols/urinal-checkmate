@@ -1,12 +1,7 @@
-console.log('Hello from the console!')
+(function() {
+console.log('app is running');
 
-var app = angular.module('urinal-chess', ['ngDragDrop']);
+$('.urinal').load('/img/urinal.svg');
+$('.man').load('/img/man.svg');
 
-app.controller('uctrl', function($scope, $http) {
-
-    $http.get('/data/data.json')
-    .then(function(result){
-      $scope.json = result.data;
-    });
-
-});
+}).call(this);

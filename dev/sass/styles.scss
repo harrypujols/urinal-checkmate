@@ -3,9 +3,16 @@
 /* Variables
    ========================================================================== */
 $black: #000000;
+$urinal-width: 100px;
+$man-width: 60px;
 
 /* User Styles
    ========================================================================== */
+ %clearfix:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
 
 .container {
     max-width: 780px;
@@ -22,15 +29,31 @@ $black: #000000;
 	fill: $black;
 }
 
+.the-man {
+  width: $man-width;
+  height: auto;
+}
+
+
+.the-urinal {
+  width: $urinal-width;
+  height: auto;
+}
+
 .restroom {
+  @extend %clearfix;
+  padding: 0;
+  list-style: none;
+  width: $urinal-width * 3;
+  margin: 0 auto;
+
   li {
-    display: inline-block;
-    margin-right: 20px;
+    float: left;
   }
 }
 
-.regular-man {
-	width: 100px;
+.man {
+	width: $man-width;
 	margin: 0 auto;
 }
 
