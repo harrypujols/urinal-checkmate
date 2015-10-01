@@ -9,9 +9,9 @@
   <div class="container">
     <h1 class="message">U Chess</h1>
     <ul class="restroom">
-      <li ondrop="drop(event)" ondragover="allowDrop(event)"><div class="urinal"></div></li>
-      <li ondrop="drop(event)" ondragover="allowDrop(event)" id="drop"><div class="urinal"></div></li>
-      <li ondrop="drop(event)" ondragover="allowDrop(event)"><div class="urinal"></div></li>
+      <li ondrop="drop(event, this)" ondragover="allowDrop(event)" class="urinal" id="urinal-1"></li>
+      <li ondrop="drop(event, this)" ondragover="allowDrop(event)" class="urinal" id="correct"></li>
+      <li ondrop="drop(event, this)" ondragover="allowDrop(event)" class="urinal" id="urinal-3"></li>
     </ul>
     <div class="regular man" draggable="true" ondragstart="drag(event)" id="drag"></div>
   </div>

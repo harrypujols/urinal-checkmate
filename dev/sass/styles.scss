@@ -3,7 +3,7 @@
 /* Variables
    ========================================================================== */
 $black: #000000;
-$urinal-width: 100px;
+$urinal-size: 100px;
 $man-width: 60px;
 
 /* User Styles
@@ -29,7 +29,7 @@ $man-width: 60px;
   @extend %clearfix;
   padding: 0;
   list-style: none;
-  width: $urinal-width * 3;
+  width: $urinal-size * 3;
   margin: 0 auto;
 
   li {
@@ -38,8 +38,9 @@ $man-width: 60px;
 }
 
 .urinal {
-  width: $urinal-width;
-  height: auto;
+  background: image-url('urinal.svg') no-repeat;
+  width: $urinal-size;
+  height: $urinal-size;
 }
 
 .man {
