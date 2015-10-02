@@ -1,5 +1,5 @@
 console.log('app is running');
-$('#message').text('u chess');
+$('#message').text('urinal chess');
 $('.man').load('/img/man.svg');
 
 function allowDrop(ev) {
@@ -15,17 +15,18 @@ function drop(ev, target) {
   var data = ev.dataTransfer.getData('text');
   ev.target.appendChild(document.getElementById(data));
 
+  $('#message').removeClass('wrong');
   if (target.id == 'correct') {
     $('#message').text('checkmate');
   } else {
-    $('#message').text('wrong');
+    $('#message').text('wrong').addClass('wrong');
   }
 }
 
 $('#drag')
-.mouseup(function() {
+.mousedown(function() {
   $(this).addClass('dragging');
 })
-.mousedown(function() {
+.mouseup(function() {
   $(this).removeClass('dragging');
 });

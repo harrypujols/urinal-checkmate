@@ -3,8 +3,9 @@
 /* Variables
    ========================================================================== */
 $black: #000000;
+$red: red;
 $urinal-size: 100px;
-$man-width: 60px;
+$man-width: 65px;
 
 /* User Styles
    ========================================================================== */
@@ -32,7 +33,6 @@ $man-width: 60px;
   &.dragging {
     cursor: -webkit-grabbing;
     cursor: -moz-grabbing;
-    visibility: hidden;
   }
 }
 
@@ -59,4 +59,8 @@ $man-width: 60px;
   height: auto;
 	margin: 0 auto;
   fill: $black;
+}
+
+.wrong {
+  color: $red;
 }
