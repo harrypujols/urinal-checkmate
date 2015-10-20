@@ -3,5 +3,12 @@
 		"id": "home",
 		"name": "Urinal Chess",
 		"message": "Urinal Chess"
-	}
+	},
+
+	"restroom": [{
+		"round": 1,
+		"urinals": 3,
+		"checkmate": 2,
+		"enemy": 0
+		}]
 }

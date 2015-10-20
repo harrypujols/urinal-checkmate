@@ -1,6 +1,4 @@
-console.log('app is running');
-$('#message').text('urinal chess');
-$('.man').load('/img/man.svg');
+
 
 function allowDrop(ev) {
   ev.preventDefault();
@@ -14,19 +12,37 @@ function drop(ev, target) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData('text');
   ev.target.appendChild(document.getElementById(data));
+  checkMate(target.id);
+}
 
-  $('#message').removeClass('wrong');
-  if (target.id == 'correct') {
-    $('#message').text('checkmate');
+function checkMate(el) {
+  if (el == 'correct') {
+    console.log('correct!');
   } else {
-    $('#message').text('wrong').addClass('wrong');
+    console.log('nothing');
   }
 }
 
-$('#drag')
-.mousedown(function() {
-  $(this).addClass('dragging');
-})
-.mouseup(function() {
-  $(this).removeClass('dragging');
+
+var app = angular.module('urinal-chess', []);
+
+app.controller('uctrl', function($scope, $http) {
+
+  $http.get('data/data.json')
+  .then(function(result){
+    $scope.page = result.data.page;
+    $scope.restroom = result.data.restroom;
+  },
+
+  function(error) {
+    console.log('There was an error :(');
+  });
+
+  $scope.range = function(min, max, step){
+    step = step || 1;
+    var input = [];
+    for (var i = min; i <= max; i += step) input.push(i);
+    return input;
+  };
+
 });
