@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="message"></h1>
+    <h1 id="message">{{ page.message }}</h1>
 
     <ul class="restroom">
       <li ng-repeat="n in range(1, restroom[0].urinals)" droppable drop="handleDrop" class="urinal" id="{{ n === restroom[0].checkmate ? 'correct' : 'urinal-' + n }}"></li>

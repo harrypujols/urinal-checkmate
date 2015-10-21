@@ -1,6 +1,7 @@
 
 var app = angular.module('urinal-chess', []);
 
+// drag
 app.directive('draggable', function() {
   return function(scope, element) {
     var el = element[0];
@@ -29,8 +30,7 @@ app.directive('draggable', function() {
   }
 });
 
-
-
+// drop
 app.directive('droppable', function() {
   return {
     scope: {
@@ -114,7 +114,13 @@ app.controller('uctrl', function($scope, $http) {
   };
 
   $scope.handleDrop = function(item, bin) {
-    alert('Item ' + item + ' has been dropped into ' + bin);
+    // alert('Item ' + item + ' has been dropped into ' + bin);
+
+    if (bin == 'correct') {
+      $scope.page.message = 'checkmate';
+    } else {
+      $scope.page.message = 'wrong';
+    }
   }
 
 });
