@@ -58,8 +58,16 @@ $man-width: 65px;
 	width: $man-width;
   height: auto;
 	margin: 0 auto;
-  fill: $black;
+
+  .regular & {
+    fill: $black;
+  }
+
+  .red & {
+    fill: $red;
+  }
 }
+
 
 .wrong {
   color: $red;

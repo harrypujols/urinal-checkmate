@@ -37,6 +37,7 @@ app.directive('droppable', function() {
       drop: '&',
       bin: '='
     },
+
     link: function(scope, element) {
       var el = element[0];
 
