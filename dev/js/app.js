@@ -108,8 +108,6 @@ app.controller('uctrl', function($scope, $http) {
 
   $scope.round = 1;
 
-  // $scope.restroom.size = $scope.restroom[$scope.round].urinals * 100;
-
   $scope.range = function(min, max, step){
     step = step || 1;
     var input = [];
