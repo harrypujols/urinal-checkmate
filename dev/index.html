@@ -9,8 +9,10 @@
   <div class="container">
     <h1 id="message">{{ page.message }}</h1>
 
-    <ul class="restroom">
-      <li ng-repeat="n in range(1, restroom[0].urinals)" droppable drop="handleDrop" class="urinal" id="{{ n === restroom[0].checkmate ? 'correct' : 'urinal-' + n }}"></li>
+    <ul class="restroom" ng-style="{'width': '1000px'}">
+      <li ng-repeat="n in range(1, restroom[round].urinals)" droppable drop="handleDrop" class="urinal" id="{{ n === restroom[round].checkmate ? 'correct' : 'urinal-' + n }}">
+        <!-- <div ng-if="n === restroom[round].enemy" class="man"></div> -->
+      </li>
     </ul>
     <div ng-include src="'img/man.svg'" class="regular man" draggable item="item" id="drag"></div>
   </div>

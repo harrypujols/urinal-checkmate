@@ -2,7 +2,7 @@
 	"page": {
 		"id": "home",
 		"name": "Urinal Chess",
-		"message": ""
+		"message": "Drag the Man"
 	},
 
 	"restroom": [{
@@ -10,5 +10,10 @@
 		"urinals": 3,
 		"checkmate": 2,
 		"enemy": 0
+		}, {
+		"round": 2,
+		"urinals": 4,
+		"checkmate": 3,
+		"enemy": 1
 		}]
 }
