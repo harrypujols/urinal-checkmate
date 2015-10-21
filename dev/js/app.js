@@ -107,7 +107,7 @@ app.controller('uctrl', function($scope, $http) {
     console.log('There was an error :(');
   });
 
-  $scope.round = 1;
+  $scope.round = 0;
 
   $scope.range = function(min, max, step){
     step = step || 1;
