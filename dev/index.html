@@ -10,7 +10,7 @@
     <h1 id="message">{{ page.message }}</h1>
 
     <ul class="restroom" ng-style="{'width': restroom[round].urinals * 100 + 'px'}">
-      <li ng-repeat="n in range(1, restroom[round].urinals)" ng-attr-droppable="{{ n != restroom[round].enemy ? 'droppable' : 'false'}}" drop="handleDrop" class="urinal" id="{{ n === restroom[round].checkmate ? 'correct' : 'urinal-' + n }}">
+      <li ng-repeat="n in range(1, restroom[round].urinals)" droppable drop="handleDrop" class="urinal" id="{{ n === restroom[round].checkmate ? 'correct' : 'urinal-' + n }}">
         <div ng-if="n === restroom[round].enemy" ng-include src="'img/man.svg'" class="red man"></div>
       </li>
     </ul>
