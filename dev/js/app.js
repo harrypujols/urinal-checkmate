@@ -113,14 +113,14 @@ app.controller('uctrl', function($scope, $http) {
     return input;
   };
 
-  $scope.handleDrop = function(item, bin) {
-    // alert('Item ' + item + ' has been dropped into ' + bin);
+  $scope.handleDrop = function(man, urinal) {
 
-    if (bin == 'correct') {
+    if (urinal == 'correct') {
       $scope.page.message = 'checkmate';
     } else {
       $scope.page.message = 'wrong';
     }
+    
   }
 
 });
