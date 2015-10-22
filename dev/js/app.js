@@ -143,14 +143,12 @@ app.controller('uctrl', function($scope, $http, $location) {
   }
 
   $scope.changeround = function() {
-
-    if ($scope.stage >= $scope.restroom.length) {
-      $scope.stage = 0;
-    } else {
-      $scope.stage++;
-    }
-
+    $scope.stage++;
     location.reload();
+  }
+
+  $scope.endgame = function() {
+    $scope.page.message = 'game over';
   }
 
 });
