@@ -95,7 +95,7 @@ app.directive('droppable', function() {
   }
 });
 
-app.controller('uctrl', function($scope, $http) {
+app.controller('uctrl', function($scope, $http, $location) {
 
   $http.get('data/data.json')
   .then(function(result){
@@ -106,6 +106,15 @@ app.controller('uctrl', function($scope, $http) {
   function(error) {
     console.log('There was an error :(');
   });
+
+  $scope.location = $location;
+  $scope.$watch('location.search()', function() {
+    $scope.stage = ($location.search()).stage;
+  }, true);
+
+  $scope.changeTarget = function(name) {
+    $location.search('stage', name);
+  }
 
   $scope.round = 0;
   $scope.continue = false;
@@ -130,7 +139,9 @@ app.controller('uctrl', function($scope, $http) {
   }
 
   $scope.changeround = function() {
-    $scope.round++;
+    $scope.stage++;
+    window.location.host + '#/?stage=' + $scope.stage;
+    location.reload();
   }
 
 });

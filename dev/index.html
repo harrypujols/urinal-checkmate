@@ -7,7 +7,7 @@
 </head>
 <body>
   <div class="container">
-    <h1 id="message">{{ page.message }}</h1>
+    <h1 id="message" class="{{ page.message === 'wrong' ? 'wrong' : 'message' }}">{{ page.message }}</h1>
 
     <ul class="restroom" ng-style="{'width': restroom[round].urinals * 100 + 'px'}">
       <li ng-repeat="n in range(1, restroom[round].urinals)" droppable drop="result" class="urinal" id="{{ n === restroom[round].checkmate ? 'correct' : 'urinal-' + n }}">
@@ -17,6 +17,8 @@
     <div class="start-position">
       <div ng-include src="'img/man.svg'" class="regular man" draggable item="item" id="drag"></div>
       <button ng-if="continue" ng-click="changeround()" class="next">Continue</button>
+      <a href="#/?stage={{ round }}">stage</a>
+      <h2>{{ stage }}</h2>
     </div>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
