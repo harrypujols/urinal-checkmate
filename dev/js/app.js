@@ -143,8 +143,9 @@ app.controller('uctrl', function($scope, $http, $location) {
   }
 
   $scope.changeround = function() {
-    if ($scope.stage == undefined) {
-      $scope.stage = 1;
+
+    if ($scope.stage >= $scope.restroom.length) {
+      $scope.stage = 0;
     } else {
       $scope.stage++;
     }

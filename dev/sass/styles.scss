@@ -81,6 +81,9 @@ $man-width: 65px;
   display: block;
   margin: 5px auto;
   padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: $black;
 
   &:hover {
     background: $black;
