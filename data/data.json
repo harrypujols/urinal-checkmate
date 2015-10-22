@@ -9,16 +9,21 @@
 			"round": 1,
 			"urinals": 3,
 			"checkmate": 2,
-			"enemy": 0
+			"enemy": [0]
 		}, {
 			"round": 2,
 			"urinals": 4,
 			"checkmate": 1,
-			"enemy": 3
+			"enemy": [3]
 		}, {
 			"round": 3,
 			"urinals": 5,
 			"checkmate": 4,
-			"enemy": 1
+			"enemy": [1]
+		}, {
+			"round": 4,
+			"urinals": 6,
+			"checkmate": 6,
+			"enemy": [1, 4]
 		}]
 }
