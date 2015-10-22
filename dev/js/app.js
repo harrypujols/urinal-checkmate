@@ -1,5 +1,5 @@
 
-var app = angular.module('urinal-chess', []);
+var app = angular.module('urinal-chess', ['ngCookies']);
 
 // drag
 app.directive('draggable', function() {
@@ -95,31 +95,24 @@ app.directive('droppable', function() {
   }
 });
 
-app.controller('uctrl', function($scope, $http, $location) {
+app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
 
   $http.get('data/data.json')
   .then(function(result){
     $scope.page = result.data.page;
     $scope.restroom = result.data.restroom;
+    $scope.stage = $cookies.get('stage');
+
+    if ($scope.stage == undefined || $scope.stage >= $scope.restroom.length) {
+      $scope.stage = 0;
+    }
   },
 
   function(error) {
     console.log('There was an error :(');
   });
 
-  $scope.location = $location;
-  $scope.$watch('location.search()', function() {
-    $scope.stage = ($location.search()).stage;
 
-    if ($scope.stage == undefined) {
-      $scope.stage = 0;
-    }
-
-  }, true);
-
-  $scope.changeTarget = function(name) {
-    $location.search('stage', name);
-  }
 
   $scope.continue = false;
 
@@ -144,6 +137,7 @@ app.controller('uctrl', function($scope, $http, $location) {
 
   $scope.changeround = function() {
     $scope.stage++;
+    $cookies.put('stage', $scope.stage);
     location.reload();
   }
 
@@ -151,4 +145,4 @@ app.controller('uctrl', function($scope, $http, $location) {
     $scope.page.message = 'game over';
   }
 
-});
+}]);
