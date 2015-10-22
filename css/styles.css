@@ -409,10 +409,14 @@ th {
   margin: 0 auto;
 }
 
-[id=message] {
+.message {
   font-size: 100px;
   text-transform: uppercase;
   text-align: center;
+}
+
+.alert {
+  color: red;
 }
 
 [id=drag] {
@@ -435,7 +439,7 @@ th {
 }
 
 .urinal {
-  background: url('../img/urinal.svg?1445539476') no-repeat;
+  background: url('../img/urinal.svg?1445539616') no-repeat;
   width: 100px;
   height: 100px;
 }
@@ -471,8 +475,4 @@ th {
 .next:hover {
   background: #000000;
   color: #ffffff;
-}
-
-.wrong {
-  color: red;
 }
