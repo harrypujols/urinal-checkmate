@@ -108,6 +108,7 @@ app.controller('uctrl', function($scope, $http) {
   });
 
   $scope.round = 0;
+  $scope.continue = false;
 
   $scope.range = function(min, max, step){
     step = step || 1;
@@ -116,14 +117,20 @@ app.controller('uctrl', function($scope, $http) {
     return input;
   };
 
-  $scope.handleDrop = function(man, urinal) {
+  $scope.result = function(man, urinal) {
 
     if (urinal == 'correct') {
       $scope.page.message = 'checkmate';
+      $scope.continue = true;
     } else {
       $scope.page.message = 'wrong';
+      $scope.continue = false;
     }
 
+  }
+
+  $scope.changeround = function() {
+    $scope.round++;
   }
 
 });
