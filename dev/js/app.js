@@ -110,13 +110,17 @@ app.controller('uctrl', function($scope, $http, $location) {
   $scope.location = $location;
   $scope.$watch('location.search()', function() {
     $scope.stage = ($location.search()).stage;
+
+    if ($scope.stage == undefined) {
+      $scope.stage = 0;
+    }
+
   }, true);
 
   $scope.changeTarget = function(name) {
     $location.search('stage', name);
   }
 
-  $scope.round = 0;
   $scope.continue = false;
 
   $scope.range = function(min, max, step){
@@ -139,8 +143,12 @@ app.controller('uctrl', function($scope, $http, $location) {
   }
 
   $scope.changeround = function() {
-    $scope.stage++;
-    window.location.host + '#/?stage=' + $scope.stage;
+    if ($scope.stage == undefined) {
+      $scope.stage = 1;
+    } else {
+      $scope.stage++;
+    }
+
     location.reload();
   }
 
