@@ -11,7 +11,7 @@
 
     <ul class="restroom" ng-style="{'width': restroom[stage].urinals * 100 + 'px'}">
       <li ng-repeat="n in range(1, restroom[stage].urinals)" droppable drop="result" class="urinal" id="{{ n === restroom[stage].checkmate ? 'correct' : 'urinal-' + n }}">
-        <div ng-if="n === restroom[stage].enemy" ng-include src="'img/man.svg'" class="red man"></div>
+        <div ng-if="n === restroom[stage].enemy[0] || n === restroom[stage].enemy[1]" ng-include src="'img/man.svg'" class="red man"></div>
       </li>
     </ul>
     <div class="start-position">
