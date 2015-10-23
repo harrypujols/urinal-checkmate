@@ -31,6 +31,11 @@ $man-width: 65px;
   color: $red;
 }
 
+.score {
+  text-align: center;
+  margin: 40px 0;
+}
+
 [id=drag] {
   cursor: -webkit-grab;
   cursor: -moz-grab;

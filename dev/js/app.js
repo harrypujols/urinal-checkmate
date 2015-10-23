@@ -105,6 +105,7 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
 
     if ($scope.stage == undefined) {
       $scope.stage = 0;
+
     } else if ($scope.stage >= $scope.restroom.length) {
       endgame();
     }
@@ -123,11 +124,28 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
     return input;
   };
 
+  $scope.score = $cookies.get('score');
+
+  if ($scope.score == undefined) {
+    $scope.score = 0;
+    $cookies.put('score', $scope.score);
+  }
+
+
+  $scope.attempt = 0;
+
   $scope.result = function(man, urinal) {
+    $scope.attempt++;
 
     if (urinal == 'correct') {
       $scope.page.message = 'checkmate';
       $scope.continue = true;
+
+      if ($scope.attempt == 1) {
+        $scope.score++
+        $cookies.put('score', $scope.score);
+      }
+
     } else {
       $scope.page.message = 'wrong';
       $scope.continue = false;
@@ -144,6 +162,7 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
   $scope.restart = function() {
     $scope.endgame = false;
     $cookies.put('stage', 0);
+    $cookies.put('score', 0);
     location.reload();
   }
 
