@@ -3,6 +3,7 @@
 /* Variables
    ========================================================================== */
 $black: #000000;
+$white: #ffffff;
 $red: red;
 $urinal-size: 100px;
 $man-width: 65px;
@@ -20,13 +21,17 @@ $man-width: 65px;
   margin: 0 auto;
 }
 
-#message {
+.message {
 	font-size: 100px;
 	text-transform: uppercase;
 	text-align: center;
 }
 
-#drag {
+.alert {
+  color: $red;
+}
+
+[id=drag] {
   cursor: -webkit-grab;
   cursor: -moz-grab;
 
@@ -54,13 +59,38 @@ $man-width: 65px;
   height: $urinal-size;
 }
 
+.start-position {
+  margin-top: 100px;
+}
+
 .man {
 	width: $man-width;
   height: auto;
 	margin: 0 auto;
-  fill: $black;
+
+  .regular & {
+    fill: $black;
+  }
+
+  .red & {
+    fill: $red;
+  }
 }
 
-.wrong {
-  color: $red;
+.next {
+  background: $white;
+  border: 2px solid $black;
+  border-radius: 5px;
+  width: 100px;
+  display: block;
+  margin: 5px auto;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  color: $black;
+
+  &:hover {
+    background: $black;
+    color: $white;
+  }
 }
