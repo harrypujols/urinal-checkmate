@@ -3,7 +3,7 @@ URINAL CHESS
 
 [![David Link](https://david-dm.org/harrypujols/gulp.png)](https://david-dm.org/harrypujols/urinal-chess)
 
-A game where your number one priority is Number One.
+The Number One game about Number One.
 
 Also known as Mensroom Chess, the site to play it is [harrypujols.com/mensroom-chess](http://harrypujols.com/mensroom-chess).
 
