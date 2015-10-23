@@ -439,7 +439,7 @@ th {
 }
 
 .urinal {
-  background: url('../img/urinal.svg?1445539616') no-repeat;
+  background: url('../img/urinal.svg?1445559039') no-repeat;
   width: 100px;
   height: 100px;
 }
@@ -454,15 +454,15 @@ th {
   margin: 0 auto;
 }
 .regular .man {
-  fill: #000000;
+  fill: black;
 }
 .red .man {
   fill: red;
 }
 
 .next {
-  background: #ffffff;
-  border: 2px solid #000000;
+  background: white;
+  border: 2px solid black;
   border-radius: 5px;
   width: 100px;
   display: block;
@@ -470,9 +470,9 @@ th {
   padding: 5px;
   text-align: center;
   text-decoration: none;
-  color: #000000;
+  color: black;
 }
 .next:hover {
-  background: #000000;
-  color: #ffffff;
+  background: black;
+  color: white;
 }
