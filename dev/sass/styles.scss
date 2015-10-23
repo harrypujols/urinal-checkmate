@@ -15,7 +15,7 @@ $man-width: 65px;
    display: table;
    clear: both;
  }
-
+ 
 .container {
   max-width: 780px;
   margin: 0 auto;
@@ -97,5 +97,17 @@ $man-width: 65px;
   &:hover {
     background: $black;
     color: $white;
+  }
+}
+
+.twitter {
+  svg {
+    display: block;
+    width: 40px;
+    margin: 0 auto;
+  }
+
+  span {
+    @extend %ir;
   }
 }
