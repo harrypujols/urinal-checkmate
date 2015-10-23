@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="container">
+  <div ng-if="!endgame" class="container">
     <h1 class="{{ page.message === 'wrong' ? 'message alert' : 'message' }}">{{ page.message }}</h1>
 
     <ul class="restroom" ng-style="{'width': restroom[stage].urinals * 100 + 'px'}">
@@ -16,8 +16,12 @@
     </ul>
     <div class="start-position">
       <div ng-include src="'img/man.svg'" class="regular man" draggable item="item" id="drag"></div>
-      <button ng-if="continue" ng-click="nextround()" class="next">Continue</button>
+      <button ng-if="continue" ng-click="nextround()" class="button">Continue</button>
     </div>
+  </div>
+  <div ng-if="endgame" class="container">
+    <h1 class="message">Game Over</h1>
+    <button class="button" ng-click="restart()">Restart?</button>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.min.js"></script>

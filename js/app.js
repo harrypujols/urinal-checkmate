@@ -141,9 +141,14 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
     location.reload();
   }
 
+  $scope.restart = function() {
+    $scope.endgame = false;
+    $cookies.put('stage', 0);
+    location.reload();
+  }
+
   var endgame = function() {
-    $scope.stage = 0;
-    $scope.page.message = 'game over';
+    $scope.endgame = true;
   }
 
 }]);

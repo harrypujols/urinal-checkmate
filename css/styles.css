@@ -439,7 +439,7 @@ th {
 }
 
 .urinal {
-  background: url('../img/urinal.svg?1445559039') no-repeat;
+  background: url('../img/urinal.svg?1445559202') no-repeat;
   width: 100px;
   height: 100px;
 }
@@ -460,7 +460,7 @@ th {
   fill: red;
 }
 
-.next {
+.button {
   background: white;
   border: 2px solid black;
   border-radius: 5px;
@@ -472,7 +472,7 @@ th {
   text-decoration: none;
   color: black;
 }
-.next:hover {
+.button:hover {
   background: black;
   color: white;
 }
