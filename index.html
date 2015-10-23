@@ -21,6 +21,7 @@
   </div>
   <div ng-if="endgame" class="container">
     <h1 class="message">Game Over</h1>
+    <h2 class="score">You got {{ score }} out of {{ restroom.length }} checkmates</h2>
     <button class="button" ng-click="restart()">Restart?</button>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>

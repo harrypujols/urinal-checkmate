@@ -419,6 +419,11 @@ th {
   color: red;
 }
 
+.score {
+  text-align: center;
+  margin: 40px 0;
+}
+
 [id=drag] {
   cursor: -webkit-grab;
   cursor: -moz-grab;
@@ -439,7 +444,7 @@ th {
 }
 
 .urinal {
-  background: url('../img/urinal.svg?1445559202') no-repeat;
+  background: url('../img/urinal.svg?1445560668') no-repeat;
   width: 100px;
   height: 100px;
 }
