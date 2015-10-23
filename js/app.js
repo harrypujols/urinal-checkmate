@@ -109,6 +109,11 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
     } else if ($scope.stage >= $scope.restroom.length) {
       endgame();
     }
+
+    if (Modernizr.touch) {
+      $scope.page.message = 'Play it on your desktop browser';
+    }
+
   },
 
   function(error) {
