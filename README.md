@@ -11,7 +11,7 @@ Also known as Mensroom Chess, the site to play it is [harrypujols.com/mensroom-c
 You're in the men's room. You need to pee.
 
 ## Rules
-If you're a man, you already know them.
+If you're a man, you already know the rules.
 
 ## Changelog
 - 10/23/15 Beta released.
