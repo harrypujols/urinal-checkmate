@@ -103,16 +103,16 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
     $scope.restroom = result.data.restroom;
     $scope.stage = $cookies.get('stage');
 
-    if ($scope.stage == undefined || $scope.stage >= $scope.restroom.length) {
+    if ($scope.stage == undefined) {
       $scope.stage = 0;
+    } else if ($scope.stage >= $scope.restroom.length) {
+      endgame();
     }
   },
 
   function(error) {
     console.log('There was an error :(');
   });
-
-
 
   $scope.continue = false;
 
@@ -135,13 +135,14 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
 
   }
 
-  $scope.changeround = function() {
+  $scope.nextround = function() {
     $scope.stage++;
     $cookies.put('stage', $scope.stage);
     location.reload();
   }
 
-  $scope.endgame = function() {
+  var endgame = function() {
+    $scope.stage = 0;
     $scope.page.message = 'game over';
   }
 
