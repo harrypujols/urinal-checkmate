@@ -5,4 +5,13 @@ URINAL CHESS
 
 A game where your number one priority is Number One.
 
-Coming soon.
+Also known as Mensroom Chess, the site to play it is harrypujols.com/mensroom-chess
+
+## Objective
+You're in the men's room. You need to pee.
+
+## Rules
+If you're a man, you already know them.
+
+## Changelog
+- 10/23/15 Beta released.
