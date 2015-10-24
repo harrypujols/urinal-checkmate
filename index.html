@@ -6,21 +6,20 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div ng-if="!endgame" class="container">
+  <div class="container">
     <h1 class="{{ page.message === 'wrong' ? 'message alert' : 'message' }}">{{ page.message }}</h1>
 
-    <ul class="restroom" ng-style="{'width': restroom[stage].urinals * 100 + 'px'}">
+    <ul ng-if="!endgame" class="restroom" ng-style="{'width': restroom[stage].urinals * 100 + 'px'}">
       <li ng-repeat="n in range(1, restroom[stage].urinals)" droppable drop="result" class="urinal" id="{{ n === restroom[stage].checkmate ? 'correct' : 'urinal-' + n }}">
         <div ng-if="n === restroom[stage].enemy[0] || n === restroom[stage].enemy[1]" ng-include src="'img/man.svg'" class="red man"></div>
       </li>
     </ul>
-    <div class="start-position">
+    <div ng-if="!endgame" class="start-position">
       <div ng-include src="'img/man.svg'" class="regular man" draggable item="item" id="drag"></div>
       <button ng-if="continue" ng-click="nextround()" class="button">Continue</button>
     </div>
   </div>
   <div ng-if="endgame" class="container">
-    <h1 class="message">Game Over</h1>
     <h2 class="score">You got {{ score }} out of {{ restroom.length }} checkmates</h2>
     <div class="sharing">
       <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fharrypujols.com/mensroom-chess&text=I&nbsp;got&nbsp;{{ score }}&nbsp;out&nbsp;of&nbsp;{{ restroom.length }}&nbsp;checkmates&nbsp;in&nbsp;men&nbsp;urinals&nbsp;" target="_blank" class="twitter"><div ng-include src="'img/twitter.svg'" ></div></a>

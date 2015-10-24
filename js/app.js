@@ -148,7 +148,7 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
 
       if ($scope.attempt == 1) {
         $scope.score++
-        $cookies.put('score', $scope.score);
+        $cookies.put('score', $scope.score, { expires: 0 });
       }
 
     } else {
@@ -160,7 +160,7 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
 
   $scope.nextround = function() {
     $scope.stage++;
-    $cookies.put('stage', $scope.stage);
+    $cookies.put('stage', $scope.stage, { expires: 0 });
     location.reload();
   }
 
@@ -173,6 +173,7 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
 
   var endgame = function() {
     $scope.endgame = true;
+    $scope.page.message = 'Game Over';
   }
 
 }]);

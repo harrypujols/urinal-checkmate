@@ -436,7 +436,6 @@ th {
 .restroom {
   padding: 0;
   list-style: none;
-  width: 300px;
   margin: 0 auto;
 }
 .restroom li {
@@ -444,7 +443,7 @@ th {
 }
 
 .urinal {
-  background: url('../img/urinal.svg?1445604118') no-repeat;
+  background: url('../img/urinal.svg?1445657779') no-repeat;
   width: 100px;
   height: 100px;
 }
