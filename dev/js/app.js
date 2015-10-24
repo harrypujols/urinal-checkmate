@@ -173,6 +173,7 @@ app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($s
 
   var endgame = function() {
     $scope.endgame = true;
+    $scope.page.message = 'Game Over';
   }
 
 }]);
