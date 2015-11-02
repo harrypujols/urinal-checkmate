@@ -1,11 +1,11 @@
-URINAL CHESS
-============
+URINAL CHECKMATE
+================
 
 [![David Link](https://david-dm.org/harrypujols/gulp.png)](https://david-dm.org/harrypujols/urinal-chess)
 
 The Number One game about Number One.
 
-Also known as Mensroom Chess, the site to play it is [harrypujols.com/mensroom-chess](http://harrypujols.com/mensroom-chess).
+Also known as Mensroom Chess, the site to play it is [harrypujols.com/mensroom-chess](http://harrypujols.com/urinal-checkmate).
 
 ## Objective
 You're in the men's room. You need to pee.
