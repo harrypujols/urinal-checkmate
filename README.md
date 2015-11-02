@@ -5,7 +5,7 @@ URINAL CHECKMATE
 
 The Number One game about Number One.
 
-Also known as Mensroom Chess, the site to play it is [harrypujols.com/mensroom-chess](http://harrypujols.com/urinal-checkmate).
+Also known as Mensroom Chess, the site to play it is [harrypujols.com/urinal-checkmate](http://harrypujols.com/urinal-checkmate).
 
 ## Objective
 You're in the men's room. You need to pee.
