@@ -16,6 +16,10 @@ $man-width: 65px;
    clear: both;
  }
 
+ [v-cloak] {
+   display: none;
+ }
+
 .container {
   max-width: 780px;
   margin: 0 auto;

@@ -1,33 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="urinal-chess" ng-controller="uctrl" lang="en">
+<html lang="en" id="urinal-checkmate">
 <head>
   <meta charset="UTF-8">
   <title>{{ page.name }}</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="container">
-    <h1 class="{{ page.message === 'wrong' ? 'message alert' : 'message' }}">{{ page.message }}</h1>
-
-    <ul ng-if="!endgame" class="restroom" ng-style="{'width': restroom[stage].urinals * 100 + 'px'}">
-      <li ng-repeat="n in range(1, restroom[stage].urinals)" droppable drop="result" class="urinal" id="{{ n === restroom[stage].checkmate ? 'correct' : 'urinal-' + n }}">
-        <div ng-if="n === restroom[stage].enemy[0] || n === restroom[stage].enemy[1]" ng-include src="'img/man.svg'" class="red man"></div>
-      </li>
-    </ul>
-    <div ng-if="!endgame" class="start-position">
-      <div ng-include src="'img/man.svg'" class="regular man" draggable item="item" id="drag"></div>
-      <button ng-if="continue" ng-click="nextround()" class="button">Continue</button>
-    </div>
+  <div class="container" v-cloak>
+    <h1>{{ page.name }}</h1>
   </div>
-  <div ng-if="endgame" class="container">
-    <h2 class="score">You got {{ score }} out of {{ restroom.length }} checkmates</h2>
-    <div class="sharing">
-      <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fharrypujols.com/mensroom-chess&text=I&nbsp;got&nbsp;{{ score }}&nbsp;out&nbsp;of&nbsp;{{ restroom.length }}&nbsp;checkmates&nbsp;in&nbsp;men&nbsp;urinals&nbsp;" target="_blank" class="twitter"><div ng-include src="'img/twitter.svg'" ></div></a>
-    </div>
-    <button class="button" ng-click="restart()">Restart?</button>
-  </div>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-cookies.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/vue/1.0.4/vue.min.js"></script>
   <script src="js/vendor.js"></script>
   <script src="js/app.js"></script>
 </body>
