@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/css" href="css/styles.css" ?>
 <svg width="274px" height="223px" viewBox="0 0 274 223" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
-    <title>Untitled 4</title>
-    <desc>Created with Sketch.</desc>
+    <title>Twitter</title>
     <defs>
         <path id="path-1" d="M0.06,0.822 L273.39,0.822 L273.39,222.94 L0.06,222.94"></path>
     </defs>

@@ -75,9 +75,10 @@ $man-width: 65px;
 	width: $man-width;
   height: auto;
 	margin: 0 auto;
-
+  fill: $black;
+  
   .regular & {
-    fill: $black;
+
   }
 
   .red & {
@@ -111,6 +112,6 @@ $man-width: 65px;
   }
 
   span {
-    @extend %ir;
+    // @extend %ir;
   }
 }

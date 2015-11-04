@@ -21,7 +21,7 @@ var app = new Vue({
     update: function() {
       var _this = this;
       var request = new XMLHttpRequest()
-      request.open('GET', 'data.json')
+      request.open('GET', 'data/data.json')
       request.onload = function () {
         result = JSON.parse(request.responseText)
         _this.page = result.page
