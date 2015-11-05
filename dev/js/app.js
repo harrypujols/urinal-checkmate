@@ -11,8 +11,8 @@ var app = new Vue({
   },
 
   watch: {
-    'page.message': function (val, oldval) {
-      console.log('new: %s, old: %s', val, oldval)
+    'page.message': function (nuval, olval) {
+      console.log('new: %s, old: %s', nuval, olval)
     }
   },
 
@@ -23,26 +23,42 @@ var app = new Vue({
       var request = new XMLHttpRequest()
       request.open('GET', 'data/data.json')
       request.onload = function () {
-        result = JSON.parse(request.responseText)
+        var result = JSON.parse(request.responseText)
         _this.page = result.page
         _this.restroom = result.restroom
       }
       request.send();
     }
+    // ,
+    //
+    // include: function(url, id) {
+    //   var _this = this;
+    //   var request = new XMLHttpRequest()
+    //   request.open('GET', url, true)
+    //   request.onreadystatechange = function() {
+    //     if (_this.readyState!==4) return
+    //     if (_this.status!==200) return
+    //     var file = _this.responseText
+    //     document.getElementById(id).innerHTML = file
+    //   }
+    //   request.send();
+    // }
 
   }
 });
 
 
-function load(file, element) {
-  var xhr= new XMLHttpRequest();
-  xhr.open('GET', file, true);
-  xhr.onreadystatechange= function() {
-    if (this.readyState!==4) return;
-    if (this.status!==200) return;
-    document.getElementById(element).innerHTML= this.responseText;
+function include(url, id) {
+  var request = new XMLHttpRequest();
+  request.open('GET', url, true);
+  request.onreadystatechange = function() {
+    if (this.readyState !== 4) return;
+    if (this.status !== 200) return;
+    var file = this.responseText;
+    document.getElementById(id).innerHTML = file;
   };
-  xhr.send();
+  request.send();
 }
 
-load('img/man.svg', 'svg');
+
+include('img/man.svg', 'svg');
