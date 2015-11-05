@@ -34,7 +34,7 @@ var app = new Vue({
 
 });
 
-Vue.directive('include', function (value) {
+Vue.directive('include', function () {
   this.el.innerHTML = this.expression
 
   var url = this.expression
@@ -53,3 +53,36 @@ Vue.directive('include', function (value) {
 var include = new Vue({
   el: '.svg'
 })
+
+
+Vue.directive('draggable', {
+  bind: function() {
+    this.el.draggable = 'true'
+    this.el.ondragstart = "drag(event)"
+  }
+})
+
+var draggable = new Vue({
+  el: '.drag'
+})
+
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData('text', ev.target.id);
+}
+
+function drop(ev, target) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData('text');
+  ev.target.appendChild(document.getElementById(data));
+
+  if (target.id == 'correct') {
+    $('#message').text('checkmate');
+  } else {
+    $('#message').text('wrong');
+  }
+}
