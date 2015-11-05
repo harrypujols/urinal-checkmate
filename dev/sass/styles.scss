@@ -75,10 +75,9 @@ $man-width: 65px;
 	width: $man-width;
   height: auto;
 	margin: 0 auto;
-  fill: $black;
-  
-  .regular & {
 
+  .regular & {
+    fill: $black;
   }
 
   .red & {

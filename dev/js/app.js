@@ -32,3 +32,17 @@ var app = new Vue({
 
   }
 });
+
+
+function load(file, element) {
+  var xhr= new XMLHttpRequest();
+  xhr.open('GET', file, true);
+  xhr.onreadystatechange= function() {
+    if (this.readyState!==4) return;
+    if (this.status!==200) return;
+    document.getElementById(element).innerHTML= this.responseText;
+  };
+  xhr.send();
+}
+
+load('img/man.svg', 'svg');
