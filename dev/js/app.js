@@ -35,7 +35,6 @@ var app = new Vue({
 });
 
 Vue.directive('include', function () {
-  this.el.innerHTML = this.expression
 
   var url = this.expression
   var _this = this;
@@ -60,6 +59,7 @@ Vue.directive('draggable', {
     this.el.draggable = 'true'
     this.el.ondragstart = function(ev) {
       ev.dataTransfer.setData('text', ev.target.id)
+      console.log('dragging...')
     }
   }
 })
