@@ -58,7 +58,9 @@ var include = new Vue({
 Vue.directive('draggable', {
   bind: function() {
     this.el.draggable = 'true'
-    this.el.ondragstart = "drag(event)"
+    this.el.ondragstart = function(ev) {
+      ev.dataTransfer.setData('text', ev.target.id)
+    }
   }
 })
 
@@ -66,13 +68,8 @@ var draggable = new Vue({
   el: '.drag'
 })
 
-
 function allowDrop(ev) {
   ev.preventDefault();
-}
-
-function drag(ev) {
-  ev.dataTransfer.setData('text', ev.target.id);
 }
 
 function drop(ev, target) {
