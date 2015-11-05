@@ -51,5 +51,5 @@ Vue.directive('include', function (value) {
 })
 
 var include = new Vue({
-  el: '#svg'
+  el: '.svg'
 })
