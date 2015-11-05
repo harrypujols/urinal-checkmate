@@ -29,36 +29,27 @@ var app = new Vue({
       }
       request.send();
     }
-    // ,
-    //
-    // include: function(url, id) {
-    //   var _this = this;
-    //   var request = new XMLHttpRequest()
-    //   request.open('GET', url, true)
-    //   request.onreadystatechange = function() {
-    //     if (_this.readyState!==4) return
-    //     if (_this.status!==200) return
-    //     var file = _this.responseText
-    //     document.getElementById(id).innerHTML = file
-    //   }
-    //   request.send();
-    // }
 
   }
+
 });
 
+Vue.directive('include', function (value) {
+  this.el.innerHTML = this.expression
 
-function include(url, id) {
-  var request = new XMLHttpRequest();
-  request.open('GET', url, true);
+  var url = this.expression
+  var _this = this;
+  var request = new XMLHttpRequest()
+  request.open('GET', url, true)
   request.onreadystatechange = function() {
-    if (this.readyState !== 4) return;
-    if (this.status !== 200) return;
-    var file = this.responseText;
-    document.getElementById(id).innerHTML = file;
-  };
+    if (this.readyState !== 4) return
+    if (this.status !== 200) return
+    _this.el.innerHTML = this.responseText
+  }
   request.send();
-}
 
+})
 
-include('img/man.svg', 'svg');
+var include = new Vue({
+  el: '#svg'
+})
