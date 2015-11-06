@@ -75,12 +75,7 @@ Vue.directive('droppable', {
         ev.preventDefault();
       }
     }
-  },
-
-  update: function() {
-    // console.log(this.expression)
   }
-
 })
 
 new Vue({
