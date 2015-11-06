@@ -9,8 +9,8 @@
   <div class="container" v-cloak>
     <!-- <h1>{{ page.name }}</h1> -->
     <ul class="restroom">
-      <li class="urinal" id="wrong" v-droppable></li>
-      <li class="urinal" id="correct" v-droppable></li>
+      <li class="urinal" id="wrong" v-droppable="false"></li>
+      <li class="urinal" id="correct" v-droppable="true"></li>
     </ul>
     <div class="regular man drag" v-include="img/man.svg" v-draggable id="man"></div>
     <div class="twitter" v-include="img/twitter.svg"></div>

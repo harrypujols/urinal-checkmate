@@ -35,9 +35,8 @@ var app = new Vue({
 });
 
 Vue.directive('include', function () {
-
   var url = this.expression
-  var _this = this;
+  var _this = this
   var request = new XMLHttpRequest()
   request.open('GET', url, true)
   request.onreadystatechange = function() {
@@ -46,7 +45,6 @@ Vue.directive('include', function () {
     _this.el.innerHTML = this.responseText
   }
   request.send();
-
 })
 
 Vue.directive('draggable', {
@@ -60,18 +58,29 @@ Vue.directive('draggable', {
 })
 
 Vue.directive('droppable', {
+
   bind: function() {
+    var condition = this.expression
     this.el.ondrop = function(ev) {
-      ev.preventDefault()
-      var data = ev.dataTransfer.getData('text')
-      ev.target.appendChild(document.getElementById(data))
-      console.log(this.id)
+      if (condition == 'true') {
+        ev.preventDefault()
+        var data = ev.dataTransfer.getData('text')
+        ev.target.appendChild(document.getElementById(data))
+        console.log(this.id)
+      }
     },
 
     this.el.ondragover = function(ev) {
-      ev.preventDefault();
+      if (condition == 'true') {
+        ev.preventDefault();
+      }
     }
+  },
+
+  update: function() {
+    // console.log(this.expression)
   }
+
 })
 
 new Vue({
