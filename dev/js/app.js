@@ -49,23 +49,14 @@ Vue.directive('include', function () {
 
 })
 
-var include = new Vue({
-  el: '.svg'
-})
-
-
 Vue.directive('draggable', {
   bind: function() {
-    this.el.draggable = 'true'
+    this.el.draggable = 'true',
     this.el.ondragstart = function(ev) {
       ev.dataTransfer.setData('text', ev.target.id)
       console.log('dragging...')
     }
   }
-})
-
-var draggable = new Vue({
-  el: '.drag'
 })
 
 Vue.directive('droppable', {
@@ -75,7 +66,7 @@ Vue.directive('droppable', {
       var data = ev.dataTransfer.getData('text')
       ev.target.appendChild(document.getElementById(data))
       console.log(this.id)
-    }
+    },
 
     this.el.ondragover = function(ev) {
       ev.preventDefault();
@@ -83,6 +74,6 @@ Vue.directive('droppable', {
   }
 })
 
-var droppable = new Vue({
-  el: '.urinal'
+new Vue({
+  el: 'body'
 })
