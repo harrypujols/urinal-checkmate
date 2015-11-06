@@ -68,18 +68,21 @@ var draggable = new Vue({
   el: '.drag'
 })
 
-function allowDrop(ev) {
-  ev.preventDefault();
-}
+Vue.directive('droppable', {
+  bind: function() {
+    this.el.ondrop = function(ev) {
+      ev.preventDefault()
+      var data = ev.dataTransfer.getData('text')
+      ev.target.appendChild(document.getElementById(data))
+      console.log(this.id)
+    }
 
-function drop(ev, target) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData('text');
-  ev.target.appendChild(document.getElementById(data));
-
-  if (target.id == 'correct') {
-    $('#message').text('checkmate');
-  } else {
-    $('#message').text('wrong');
+    this.el.ondragover = function(ev) {
+      ev.preventDefault();
+    }
   }
-}
+})
+
+var droppable = new Vue({
+  el: '.urinal'
+})

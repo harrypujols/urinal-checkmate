@@ -8,7 +8,11 @@
 <body>
   <div class="container" v-cloak>
     <!-- <h1>{{ page.name }}</h1> -->
-    <div class="regular man drag" v-include="img/man.svg" v-draggable></div>
+    <ul class="restroom">
+      <li class="urinal" id="wrong" v-droppable></li>
+      <li class="urinal" id="correct" v-droppable></li>
+    </ul>
+    <div class="regular man drag" v-include="img/man.svg" v-draggable id="man"></div>
     <div class="twitter" v-include="img/twitter.svg"></div>
   </div>
   <script src="http://cdn.jsdelivr.net/vue/1.0.4/vue.min.js"></script>
