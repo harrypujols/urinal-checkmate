@@ -62,18 +62,14 @@ Vue.directive('droppable', {
   bind: function() {
     var condition = this.expression
     this.el.ondrop = function(ev) {
-      if (condition == 'true') {
-        ev.preventDefault()
-        var data = ev.dataTransfer.getData('text')
-        ev.target.appendChild(document.getElementById(data))
-        console.log(this.id)
-      }
+      ev.preventDefault()
+      var data = ev.dataTransfer.getData('text')
+      ev.target.appendChild(document.getElementById(data))
+      console.log(this.id)
     },
 
     this.el.ondragover = function(ev) {
-      if (condition == 'true') {
-        ev.preventDefault();
-      }
+      ev.preventDefault();
     }
   }
 })
