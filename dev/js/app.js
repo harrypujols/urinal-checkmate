@@ -36,7 +36,11 @@ var app = new Vue({
         this.el.draggable = 'true',
         this.el.ondragstart = function(ev) {
           ev.dataTransfer.setData('text', ev.target.id)
+          this.classList.add('dragging')
           console.log('dragging...')
+        }
+        this.el.ondragend = function() {
+          this.classList.remove('dragging')
         }
       }
     },
@@ -59,7 +63,6 @@ var app = new Vue({
   },
 
   methods: {
-
     update: function() {
       var _this = this;
       var request = new XMLHttpRequest()
@@ -71,7 +74,6 @@ var app = new Vue({
       }
       request.send();
     }
-
   }
 
 });
