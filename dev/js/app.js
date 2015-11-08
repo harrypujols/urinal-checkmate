@@ -3,7 +3,8 @@ var app = new Vue({
 
   data: {
     page: { message: 'loading...' },
-    colors: null
+    restroom: {},
+    database: 'data/data.json'
   },
 
   created: function() {
@@ -21,7 +22,7 @@ var app = new Vue({
     update: function() {
       var _this = this;
       var request = new XMLHttpRequest()
-      request.open('GET', 'data/data.json')
+      request.open('GET', this.database)
       request.onload = function () {
         var result = JSON.parse(request.responseText)
         _this.page = result.page
