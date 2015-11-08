@@ -71,6 +71,11 @@ var app = new Vue({
         var result = JSON.parse(request.responseText)
         _this.page = result.page
         _this.restroom = result.restroom
+
+        if (Modernizr.touch) {
+          _this.page.message = 'Play it on your desktop browser'
+        }
+
       }
       request.send();
     }
