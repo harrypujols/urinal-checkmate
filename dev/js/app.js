@@ -24,7 +24,7 @@ var app = new Vue({
       if (result < 0) {
         result = 0
       }
-      return result  
+      return result
     }
   },
 
@@ -50,6 +50,7 @@ var app = new Vue({
           this.classList.add('dragging')
           console.log('dragging...')
         }
+
         this.el.ondragend = function() {
           this.classList.remove('dragging')
         }
@@ -57,14 +58,16 @@ var app = new Vue({
     },
 
     droppable: {
-      bind: function() {
-        var condition = this.expression
+
+      update: function(dropped) {
+        var _this = dropped
         this.el.ondrop = function(ev) {
           ev.preventDefault()
           var data = ev.dataTransfer.getData('text')
           ev.target.appendChild(document.getElementById(data))
-          console.log(this.id)
-        },
+          var selected = this.id
+          _this(selected)
+        }
 
         this.el.ondragover = function(ev) {
           ev.preventDefault();
@@ -75,7 +78,7 @@ var app = new Vue({
 
   methods: {
     update: function() {
-      var _this = this;
+      var _this = this
       var request = new XMLHttpRequest()
       request.open('GET', this.database)
       request.onload = function () {
@@ -89,7 +92,18 @@ var app = new Vue({
 
       }
       request.send();
+    },
+
+    drop: function(selected) {
+      if (selected == 'correct') {
+        this.page.message = 'correct'
+      } else {
+        this.page.message = 'wrong'
+      }
+
+      console.log(this.page.message)
     }
   }
+
 
 });
