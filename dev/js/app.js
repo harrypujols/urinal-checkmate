@@ -15,6 +15,10 @@ var app = new Vue({
   watch: {
     'page.message': function (nuval, olval) {
       console.log('new: %s, old: %s', nuval, olval)
+
+      if (nuval == 'checkmate') {
+        // function for next round
+      }
     }
   },
 
@@ -84,13 +88,13 @@ var app = new Vue({
         var result = JSON.parse(request.responseText)
         _this.page = result.page
         _this.restroom = result.restroom
-
-        if (Modernizr.touch) {
-          _this.page.message = 'Play it on your desktop browser'
-        }
-
       }
+
       request.send();
+
+      if (Modernizr.touch) {
+        this.page.message = 'Play it on your desktop browser'
+      }
     },
 
     drop: function(selected) {
