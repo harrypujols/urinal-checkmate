@@ -7,10 +7,9 @@
 </head>
 <body>
   <div class="container" v-cloak>
-    <h1 class="message">{{ page.message }}</h1>
-    <ul class="restroom">
-      <li class="urinal" id="wrong" v-droppable></li>
-      <li class="urinal" id="correct" v-droppable></li>
+    <!-- <h1 class="message">{{ page.message }}</h1> -->
+    <ul class="restroom" v-bind:style="{ width: restroom[stage].urinals * 100 + 'px'}">
+      <li v-for="n in restroom[stage].urinals" v-droppable class='urinal' id="{{ n === checkmate ? 'correct' : 'urinal-' + n }}"></li>
     </ul>
     <div class="regular man" id="man" v-include="img/man.svg" v-draggable></div>
     <div class="twitter" v-include="img/twitter.svg"></div>

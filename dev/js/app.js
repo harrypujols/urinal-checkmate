@@ -4,6 +4,7 @@ var app = new Vue({
   data: {
     page: { message: 'loading...' },
     restroom: {},
+    stage: 0,
     database: 'data/data.json'
   },
 
@@ -14,6 +15,16 @@ var app = new Vue({
   watch: {
     'page.message': function (nuval, olval) {
       console.log('new: %s, old: %s', nuval, olval)
+    }
+  },
+
+  computed: {
+    checkmate: function() {
+      var result = this.restroom[this.stage].checkmate - 1
+      if (result < 0) {
+        result = 0
+      }
+      return result  
     }
   },
 
