@@ -9,9 +9,11 @@
   <div class="container" v-cloak>
     <h1 class="message">{{ page.message }}</h1>
     <ul class="restroom" v-bind:style="{ width: restroom[stage].urinals * 100 + 'px'}">
-      <li v-for="n in restroom[stage].urinals" v-droppable="drop" class='urinal' id="{{ n === checkmate ? 'correct' : 'urinal-' + n }}"></li>
+      <li class='urinal' v-for="n in restroom[stage].urinals" v-droppable="drop" id="{{ n === checkmate ? 'correct' : 'urinal-' + n }}">
+        <div v-if="n === enemy" v-include="img/man.svg" class="red man"></div>
+      </li>
     </ul>
-    <div class="regular man" id="man" v-include="img/man.svg" v-draggable></div>
+    <div class="regular man" v-include="img/man.svg" v-draggable id="man"></div>
     <div class="twitter" v-include="img/twitter.svg"></div>
   </div>
   <script src="http://cdn.jsdelivr.net/vue/1.0.4/vue.min.js"></script>

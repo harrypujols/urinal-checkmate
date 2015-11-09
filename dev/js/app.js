@@ -29,6 +29,11 @@ var app = new Vue({
         result = 0
       }
       return result
+    },
+
+    enemy: function() {
+      var result = this.restroom[this.stage].enemy[0] - 1
+      return result
     }
   },
 
