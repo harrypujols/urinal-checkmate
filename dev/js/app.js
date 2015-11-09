@@ -58,7 +58,6 @@ var app = new Vue({
     },
 
     droppable: {
-
       update: function(dropped) {
         var _this = dropped
         this.el.ondrop = function(ev) {
@@ -96,7 +95,7 @@ var app = new Vue({
 
     drop: function(selected) {
       if (selected == 'correct') {
-        this.page.message = 'correct'
+        this.page.message = 'checkmate'
       } else {
         this.page.message = 'wrong'
       }
@@ -104,6 +103,5 @@ var app = new Vue({
       console.log(this.page.message)
     }
   }
-
 
 });
