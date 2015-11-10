@@ -8,7 +8,7 @@ var app = new Vue({
     database: 'data/data.json'
   },
 
-  created: function() {
+  ready: function() {
     this.update()
   },
 
@@ -71,10 +71,12 @@ var app = new Vue({
         var _this = dropped
         this.el.ondrop = function(ev) {
           ev.preventDefault()
+          ev.stopPropagation()
           var data = ev.dataTransfer.getData('text')
-          ev.target.appendChild(document.getElementById(data))
+          this.appendChild(document.getElementById(data))
           var selected = this.id
           _this(selected)
+          return false
         }
 
         this.el.ondragover = function(ev) {
