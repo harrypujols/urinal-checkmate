@@ -67,8 +67,8 @@ var app = new Vue({
     },
 
     droppable: {
-      update: function(dropped) {
-        var _this = dropped
+      update: function(drop) {
+        var _this = drop
         this.el.ondrop = function(ev) {
           ev.preventDefault()
           ev.stopPropagation()
@@ -104,8 +104,8 @@ var app = new Vue({
       }
     },
 
-    drop: function(selected) {
-      if (selected == 'correct') {
+    drop: function(urinal) {
+      if (urinal == 'correct') {
         this.page.message = 'checkmate'
       } else {
         this.page.message = 'wrong'
