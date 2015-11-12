@@ -4,12 +4,13 @@ var app = new Vue({
   data: {
     page: { message: 'loading...' },
     restroom: {},
-    stage: 0,
-    database: 'data/data.json'
+    stage: 2,
+    database: 'data/data.json',
+    man: document.getElementById('man')
   },
 
   ready: function() {
-    this.update()
+    this.import()
   },
 
   watch: {
@@ -31,8 +32,13 @@ var app = new Vue({
       return result
     },
 
-    enemy: function() {
+    enemy1: function() {
       var result = this.restroom[this.stage].enemy[0] - 1
+      return result
+    },
+
+    enemy2: function() {
+      var result = this.restroom[this.stage].enemy[1] - 1
       return result
     }
   },
@@ -87,7 +93,7 @@ var app = new Vue({
   },
 
   methods: {
-    update: function() {
+    import: function() {
       var _this = this
       var request = new XMLHttpRequest()
       request.open('GET', this.database)
@@ -110,9 +116,11 @@ var app = new Vue({
       } else {
         this.page.message = 'wrong'
       }
-
-      console.log(this.page.message)
     }
+  },
+
+  remove: function() {
+    this.man.remove()
   }
 
 });

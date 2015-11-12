@@ -12,8 +12,8 @@
       <li class='urinal'
           v-for="n in restroom[stage].urinals"
           v-droppable="drop"
-          id="{{ n === checkmate ? 'correct' : 'urinal-' + n }}">
-        <div v-if="n === enemy" v-include="img/man.svg" class="red man"></div>
+          id="{{ n == checkmate ? 'correct' : 'urinal-' + n }}">
+        <div v-if="n == enemy1 || n == enemy2" v-include="img/man.svg" class="red man"></div>
       </li>
     </ul>
     <div class="regular man" v-include="img/man.svg" v-draggable id="man"></div>
