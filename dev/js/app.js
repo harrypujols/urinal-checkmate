@@ -53,13 +53,13 @@ var app = new Vue({
   directives: {
     include: function() {
       var url = this.expression
-      var _this = this
+      var that = this
       var request = new XMLHttpRequest()
       request.open('GET', url, true)
       request.onreadystatechange = function() {
         if (this.readyState !== 4) return
         if (this.status !== 200) return
-        _this.el.innerHTML = this.responseText
+        that.el.innerHTML = this.responseText
       }
       request.send();
     },
@@ -81,14 +81,14 @@ var app = new Vue({
 
     droppable: {
       update: function(drop) {
-        var _this = drop
+        var dispatch = drop
         this.el.ondrop = function(ev) {
           ev.preventDefault()
           ev.stopPropagation()
           var data = ev.dataTransfer.getData('text')
-          this.appendChild(document.getElementById(data))
           var selected = this.id
-          _this(selected)
+          dispatch(selected)
+          this.appendChild(document.getElementById(data))
           return false
         }
 
@@ -101,13 +101,13 @@ var app = new Vue({
 
   methods: {
     import: function() {
-      var _this = this
+      var that = this
       var request = new XMLHttpRequest()
       request.open('GET', this.database)
       request.onload = function () {
         var result = JSON.parse(request.responseText)
-        _this.page = result.page
-        _this.restroom = result.restroom
+        that.page = result.page
+        that.restroom = result.restroom
       }
 
       request.send();
