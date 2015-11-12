@@ -123,11 +123,12 @@ var app = new Vue({
       } else {
         this.page.message = 'wrong'
       }
-    }
-  },
+    },
 
-  remove: function() {
-    this.man.remove()
+    reposition: function() {
+      var restore = document.getElementById('start-position')
+      restore.appendChild(this.man)
+    }
   }
 
 });
