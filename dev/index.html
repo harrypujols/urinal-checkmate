@@ -8,9 +8,9 @@
 <body>
   <div class="container" v-cloak>
     <h1 class="message">{{ page.message }}</h1>
-    <ul class="restroom" v-bind:style="{ width: restroom[stage].urinals * 100 + 'px'}">
+    <ul class="restroom" v-bind:style="{ width: urinals * 100 + 'px'}">
       <li class='urinal'
-          v-for="n in restroom[stage].urinals"
+          v-for="n in urinals"
           v-droppable="drop"
           id="{{ n == checkmate ? 'correct' : 'urinal-' + n }}">
         <div v-if="n == enemy1 || n == enemy2" v-include="img/man.svg" class="red man"></div>

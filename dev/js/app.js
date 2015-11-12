@@ -5,6 +5,7 @@ var app = new Vue({
     page: { message: 'loading...' },
     restroom: {},
     stage: 2,
+    urinals: null,
     database: 'data/data.json',
     man: document.getElementById('man')
   },
@@ -19,6 +20,13 @@ var app = new Vue({
 
       if (nuval == 'checkmate') {
         // function for next round
+      }
+    },
+
+    'restroom': function() {
+      if (typeof null== 'object') {
+        this.urinals = this.restroom[this.stage].urinals
+        return this.urinals
       }
     }
   },
