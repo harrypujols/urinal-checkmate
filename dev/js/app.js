@@ -41,10 +41,11 @@ var app = new Vue({
     },
 
     enemy: function() {
-      var men = this.restroom[this.stage].enemies
-      var x = men[0] -1
-      var y = men[1] -1
-      var enemy = [x, y]
+      var enemies = this.restroom[this.stage].enemies
+      var enemy = []
+      for (i = 0; i < enemies.length; i++) {
+        enemy.push(enemies[i] -1);
+      }
       return enemy
     }
   },
