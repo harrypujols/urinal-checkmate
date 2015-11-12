@@ -13,7 +13,7 @@
           v-for="n in urinals"
           v-droppable="drop"
           id="{{ n == checkmate ? 'correct' : 'urinal-' + n }}">
-        <div v-if="n == enemy1 || n == enemy2" v-include="img/man.svg" class="red man"></div>
+        <div v-if="enemy.indexOf(n) >= 0" v-include="img/man.svg" class="red man"></div>
       </li>
     </ul>
     <div class="regular man" v-include="img/man.svg" v-draggable id="man"></div>

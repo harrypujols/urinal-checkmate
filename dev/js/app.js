@@ -4,7 +4,7 @@ var app = new Vue({
   data: {
     page: { message: 'loading...' },
     restroom: {},
-    stage: 2,
+    stage: 3,
     urinals: null,
     database: 'data/data.json',
     man: document.getElementById('man')
@@ -40,14 +40,12 @@ var app = new Vue({
       return result
     },
 
-    enemy1: function() {
-      var result = this.restroom[this.stage].enemy[0] - 1
-      return result
-    },
-
-    enemy2: function() {
-      var result = this.restroom[this.stage].enemy[1] - 1
-      return result
+    enemy: function() {
+      var men = this.restroom[this.stage].enemies
+      var x = men[0] -1
+      var y = men[1] -1
+      var enemy = [x, y]
+      return enemy
     }
   },
 
