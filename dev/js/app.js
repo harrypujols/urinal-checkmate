@@ -136,25 +136,22 @@ var app = new Vue({
     },
 
     comeback: function() {
-      var entrance = document.getElementById('start-position');
-      var current = document.getElementById('correct');
-
-      while (current.childNodes.length > 0) {
-        entrance.appendChild(current.childNodes[0]);
-      }
+      var entrance = document.getElementById('start-position')
+      var man = document.getElementById('man')
+      entrance.appendChild(man)
     },
 
     continue: function() {
-      this.page.message = 'Drag the Man'
       this.attempt = 0
       this.next = false
       this.stage++
 
-      if (this.stage == this.restroom.length) {
+      if (this.stage >= this.restroom.length) {
         this.stage = this.restroom.length
         this.endgame = true
       }
 
+      this.import()
       this.comeback()
     }
   }
