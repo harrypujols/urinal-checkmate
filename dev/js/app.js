@@ -9,7 +9,7 @@ var app = new Vue({
     score: 0,
     attempt: 0,
     urinals: null,
-    next: false,
+    reload: false,
     endgame: false
   },
 
@@ -26,7 +26,7 @@ var app = new Vue({
           this.score++
         }
 
-        this.next = true
+        this.reload = true
       }
     },
 
@@ -142,17 +142,18 @@ var app = new Vue({
     },
 
     continue: function() {
-      this.attempt = 0
-      this.next = false
       this.stage++
 
-      if (this.stage >= this.restroom.length) {
+      if (this.stage == this.restroom.length) {
         this.stage = this.restroom.length
         this.endgame = true
+        this.page.message = 'Game Over'
+      } else {
+        this.reload = false
+        this.attempt = 0
+        this.import()
+        this.comeback()
       }
-
-      this.import()
-      this.comeback()
     }
   }
 
