@@ -8,17 +8,23 @@
 <body>
   <div class="container" v-cloak>
     <h1 class="{{ page.message == 'wrong' ? 'message alert' : 'message' }}">{{ page.message }}</h1>
-    <ul class="restroom" v-bind:style="{ width: urinals * 100 + 'px'}">
-      <li class='urinal'
+    <div v-if="!endgame">
+      <ul class="restroom" v-bind:style="{ width: urinals * 100 + 'px'}">
+          <li class='urinal'
           v-for="n in urinals"
           v-droppable="drop"
           id="{{ n == checkmate ? 'correct' : 'urinal-' + n }}">
-        <div v-if="enemy.indexOf(n) >= 0" v-include="img/man.svg" class="red man"></div>
-      </li>
-    </ul>
-    <div id="start-position">
-      <div class="regular man" v-include="img/man.svg" v-draggable id="man"></div>
+          <div v-if="enemy.indexOf(n) >= 0" v-include="img/man.svg" class="red man"></div>
+        </li>
+      </ul>
+      <div id="start-position">
+        <div class="regular man" v-include="img/man.svg" v-draggable id="man"></div>
+        <button class="button" v-if="next" v-on:click="continue">Continue</button>
+      </div>
     </div>
+  </div>
+  <div class="container" v-if="endgame">
+    <h2>You scored {{ score }} out of {{ restroom.length }}</h2>
   </div>
   <script src="//cdn.jsdelivr.net/vue/1.0.4/vue.min.js"></script>
   <script src="js/vendor.js"></script>

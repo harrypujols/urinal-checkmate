@@ -2,13 +2,15 @@ var app = new Vue({
   el: '#urinal-checkmate',
 
   data: {
+    database: 'data/data.json',
     page: { message: 'loading...' },
     restroom: {},
-    stage: 3,
-    urinals: null,
-    database: 'data/data.json',
-    man: document.getElementById('man'),
+    stage: 0,
     score: 0,
+    attempt: 0,
+    urinals: null,
+    man: document.getElementById('man'),
+    next: false,
     endgame: false
   },
 
@@ -21,15 +23,23 @@ var app = new Vue({
       console.log('new: %s, old: %s', nuval, olval)
 
       if (nuval == 'checkmate') {
-        // function for next round
+        if (this.attempt <= 1) {
+          this.score++
+        }
+
+        this.next = true
       }
     },
 
     'restroom': function() {
-      if (typeof null== 'object') {
+      if (typeof null == 'object') {
         this.urinals = this.restroom[this.stage].urinals
         return this.urinals
       }
+    },
+
+    'stage': function() {
+      this.urinals = this.restroom[this.stage].urinals
     }
   },
 
@@ -123,11 +133,26 @@ var app = new Vue({
       } else {
         this.page.message = 'wrong'
       }
+      this.attempt++
     },
 
     comeback: function() {
       var entrance = document.getElementById('start-position')
       entrance.appendChild(this.man)
+    },
+
+    continue: function() {
+      this.page.message = 'Drag the Man'
+      this.attempt = 0
+      this.next = false
+      this.stage++
+
+      if (this.stage == this.restroom.length) {
+        this.stage = this.restroom.length
+        this.endgame = true
+      }
+
+      this.comeback()
     }
   }
 
