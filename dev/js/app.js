@@ -7,7 +7,9 @@ var app = new Vue({
     stage: 3,
     urinals: null,
     database: 'data/data.json',
-    man: document.getElementById('man')
+    man: document.getElementById('man'),
+    score: 0,
+    endgame: false
   },
 
   ready: function() {
@@ -81,13 +83,12 @@ var app = new Vue({
 
     droppable: {
       update: function(drop) {
-        var dispatch = drop
+        var selected = drop
         this.el.ondrop = function(ev) {
           ev.preventDefault()
           ev.stopPropagation()
           var data = ev.dataTransfer.getData('text')
-          var selected = this.id
-          dispatch(selected)
+          selected(this.id)
           this.appendChild(document.getElementById(data))
           return false
         }
@@ -109,7 +110,6 @@ var app = new Vue({
         that.page = result.page
         that.restroom = result.restroom
       }
-
       request.send();
 
       if (Modernizr.touch) {
@@ -125,9 +125,9 @@ var app = new Vue({
       }
     },
 
-    reposition: function() {
-      var restore = document.getElementById('start-position')
-      restore.appendChild(this.man)
+    comeback: function() {
+      var entrance = document.getElementById('start-position')
+      entrance.appendChild(this.man)
     }
   }
 
