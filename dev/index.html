@@ -24,7 +24,10 @@
     </div>
   </div>
   <div class="container" v-if="endgame == true">
-    <h2>You scored {{ score }} out of {{ restroom.length }}</h2>
+    <h2 class="score">You scored {{ score }} out of {{ restroom.length }} checkmates</h2>
+    <div class="sharing">
+      <a href="https://twitter.com/intent/tweet?url=http%3A%2F%2Fharrypujols.com/urinal-checkmate&text=I&nbsp;got&nbsp;{{ score }}&nbsp;out&nbsp;of&nbsp;{{ restroom.length }}&nbsp;checkmates&nbsp;in&nbsp;men&nbsp;urinals&nbsp;" target="_blank" class="twitter"><div v-include="'img/twitter.svg'" ></div></a>
+    </div>
   </div>
   <script src="//cdn.jsdelivr.net/vue/1.0.4/vue.min.js"></script>
   <script src="js/vendor.js"></script>
