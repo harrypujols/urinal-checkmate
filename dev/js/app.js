@@ -154,6 +154,10 @@ var app = new Vue({
         this.import()
         this.comeback()
       }
+    },
+
+    restart: function() {
+      location.reload()
     }
   }
 
