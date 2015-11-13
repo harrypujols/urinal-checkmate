@@ -9,7 +9,6 @@ var app = new Vue({
     score: 0,
     attempt: 0,
     urinals: null,
-    man: document.getElementById('man'),
     next: false,
     endgame: false
   },
@@ -137,8 +136,12 @@ var app = new Vue({
     },
 
     comeback: function() {
-      var entrance = document.getElementById('start-position')
-      entrance.appendChild(this.man)
+      var entrance = document.getElementById('start-position');
+      var current = document.getElementById('correct');
+
+      while (current.childNodes.length > 0) {
+        entrance.appendChild(current.childNodes[0]);
+      }
     },
 
     continue: function() {
