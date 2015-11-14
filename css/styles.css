@@ -404,6 +404,10 @@ th {
   clear: both;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 .container {
   max-width: 780px;
   margin: 0 auto;
@@ -424,11 +428,11 @@ th {
   margin: 40px 0;
 }
 
-[id=drag] {
+[id=man] {
   cursor: -webkit-grab;
   cursor: -moz-grab;
 }
-[id=drag].dragging {
+[id=man].dragging {
   cursor: -webkit-grabbing;
   cursor: -moz-grabbing;
 }
@@ -443,12 +447,12 @@ th {
 }
 
 .urinal {
-  background: url('../img/urinal.svg?1445657779') no-repeat;
+  background: url('../img/urinal.svg?1447462418') no-repeat;
   width: 100px;
   height: 100px;
 }
 
-.start-position {
+[id=start-position] {
   margin-top: 100px;
 }
 

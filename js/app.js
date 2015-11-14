@@ -1,179 +1,167 @@
+var app = new Vue({
+  el: '#urinal-checkmate',
 
-var app = angular.module('urinal-chess', ['ngCookies']);
-
-// drag
-app.directive('draggable', function() {
-  return function(scope, element) {
-    var el = element[0];
-
-    el.draggable = true;
-
-    el.addEventListener(
-      'dragstart',
-      function(e) {
-        e.dataTransfer.effectAllowed = 'move';
-        e.dataTransfer.setData('Text', this.id);
-        this.classList.add('drag');
-        return false;
-      },
-      false
-    );
-
-    el.addEventListener(
-      'dragend',
-      function(e) {
-        this.classList.remove('drag');
-        return false;
-      },
-      false
-    );
-  }
-});
-
-// drop
-app.directive('droppable', function() {
-  return {
-    scope: {
-      drop: '&',
-      bin: '='
-    },
-
-    link: function(scope, element) {
-      var el = element[0];
-
-      el.addEventListener(
-        'dragover',
-        function(e) {
-          e.dataTransfer.dropEffect = 'move';
-          if (e.preventDefault) e.preventDefault();
-          this.classList.add('over');
-          return false;
-        },
-        false
-      );
-
-      el.addEventListener(
-        'dragenter',
-        function(e) {
-          this.classList.add('over');
-          return false;
-        },
-        false
-      );
-
-      el.addEventListener(
-        'dragleave',
-        function(e) {
-          this.classList.remove('over');
-          return false;
-        },
-        false
-      );
-
-      el.addEventListener(
-        'drop',
-        function(e) {
-          if (e.stopPropagation) e.stopPropagation();
-
-          this.classList.remove('over');
-
-          var binId = this.id;
-          var item = document.getElementById(e.dataTransfer.getData('Text'));
-          this.appendChild(item);
-          scope.$apply(function(scope) {
-            var fn = scope.drop();
-            if ('undefined' !== typeof fn) {
-              fn(item.id, binId);
-            }
-          });
-
-          return false;
-        },
-        false
-      );
-    }
-  }
-});
-
-app.controller('uctrl', ['$scope', '$http', '$location', '$cookies', function($scope, $http, $location, $cookies) {
-
-  $http.get('data/data.json')
-  .then(function(result){
-    $scope.page = result.data.page;
-    $scope.restroom = result.data.restroom;
-    $scope.stage = $cookies.get('stage');
-
-    if ($scope.stage == undefined) {
-      $scope.stage = 0;
-
-    } else if ($scope.stage >= $scope.restroom.length) {
-      endgame();
-    }
-
-    if (Modernizr.touch) {
-      $scope.page.message = 'Play it on your desktop browser';
-    }
-
+  data: {
+    database: 'data/data.json',
+    page: { message: 'loading...' },
+    restroom: {},
+    stage: 0,
+    score: 0,
+    attempt: 0,
+    urinals: null,
+    reload: false,
+    endgame: false
   },
 
-  function(error) {
-    console.log('There was an error :(');
-  });
+  ready: function() {
+    this.import()
+  },
 
-  $scope.continue = false;
+  watch: {
+    'page.message': function (nuval, olval) {
+      console.log('new: %s, old: %s', nuval, olval)
 
-  $scope.range = function(min, max, step){
-    step = step || 1;
-    var input = [];
-    for (var i = min; i <= max; i += step) input.push(i);
-    return input;
-  };
+      if (nuval == 'checkmate') {
+        if (this.attempt <= 1) {
+          this.score++
+        }
 
-  $scope.score = $cookies.get('score');
-
-  if ($scope.score == undefined) {
-    $scope.score = 0;
-    $cookies.put('score', $scope.score);
-  }
-
-
-  $scope.attempt = 0;
-
-  $scope.result = function(man, urinal) {
-    $scope.attempt++;
-
-    if (urinal == 'correct') {
-      $scope.page.message = 'checkmate';
-      $scope.continue = true;
-
-      if ($scope.attempt == 1) {
-        $scope.score++
-        $cookies.put('score', $scope.score, { expires: 0 });
+        this.reload = true
       }
+    },
 
-    } else {
-      $scope.page.message = 'wrong';
-      $scope.continue = false;
+    'restroom': function() {
+      if (typeof null == 'object') {
+        this.urinals = this.restroom[this.stage].urinals
+        return this.urinals
+      }
+    },
+
+    'stage': function() {
+      if (typeof null == 'object') {
+        this.urinals = this.restroom[this.stage].urinals
+        return this.urinals
+      }
     }
+  },
 
+  computed: {
+    checkmate: function() {
+      var result = this.restroom[this.stage].checkmate - 1
+      if (result < 0) {
+        result = 0
+      }
+      return result
+    },
+
+    enemy: function() {
+      var enemies = this.restroom[this.stage].enemies
+      var enemy = []
+      for (i = 0; i < enemies.length; i++) {
+        enemy.push(enemies[i] -1);
+      }
+      return enemy
+    }
+  },
+
+  directives: {
+    include: function() {
+      var url = this.expression
+      var that = this
+      var request = new XMLHttpRequest()
+      request.open('GET', url, true)
+      request.onreadystatechange = function() {
+        if (this.readyState !== 4) return
+        if (this.status !== 200) return
+        that.el.innerHTML = this.responseText
+      }
+      request.send();
+    },
+
+    draggable: {
+      bind: function() {
+        this.el.draggable = 'true',
+        this.el.ondragstart = function(ev) {
+          ev.dataTransfer.setData('text', ev.target.id)
+          this.classList.add('dragging')
+          console.log('dragging...')
+        }
+
+        this.el.ondragend = function() {
+          this.classList.remove('dragging')
+        }
+      }
+    },
+
+    droppable: {
+      update: function(drop) {
+        var selected = drop
+        this.el.ondrop = function(ev) {
+          ev.preventDefault()
+          ev.stopPropagation()
+          var data = ev.dataTransfer.getData('text')
+          selected(this.id)
+          this.appendChild(document.getElementById(data))
+          return false
+        }
+
+        this.el.ondragover = function(ev) {
+          ev.preventDefault();
+        }
+      }
+    }
+  },
+
+  methods: {
+    import: function() {
+      var that = this
+      var request = new XMLHttpRequest()
+      request.open('GET', this.database)
+      request.onload = function () {
+        var result = JSON.parse(request.responseText)
+        that.page = result.page
+        that.restroom = result.restroom
+      }
+      request.send();
+
+      if (Modernizr.touch) {
+        this.page.message = 'Play it on your desktop browser'
+      }
+    },
+
+    drop: function(urinal) {
+      if (urinal == 'correct') {
+        this.page.message = 'checkmate'
+      } else {
+        this.page.message = 'wrong'
+      }
+      this.attempt++
+    },
+
+    comeback: function() {
+      var entrance = document.getElementById('start-position')
+      var man = document.getElementById('man')
+      entrance.appendChild(man)
+    },
+
+    continue: function() {
+      var last = this.restroom.length - 1
+      if (this.stage >= last) {
+        this.stage = last
+        this.endgame = true
+        this.page.message = 'Game Over'
+      } else {
+        this.stage++
+        this.reload = false
+        this.attempt = 0
+        this.import()
+        this.comeback()
+      }
+    },
+
+    restart: function() {
+      location.reload()
+    }
   }
 
-  $scope.nextround = function() {
-    $scope.stage++;
-    $cookies.put('stage', $scope.stage, { expires: 0 });
-    location.reload();
-  }
-
-  $scope.restart = function() {
-    $scope.endgame = false;
-    $cookies.put('stage', 0);
-    $cookies.put('score', 0);
-    location.reload();
-  }
-
-  var endgame = function() {
-    $scope.endgame = true;
-    $scope.page.message = 'Game Over';
-  }
-
-}]);
+});
