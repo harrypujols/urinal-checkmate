@@ -15,3 +15,4 @@ If you're a man, you already know the rules.
 
 ## Changelog
 - 10/23/15 Beta released.
+- 11/13/2015 Migrated framework code from Angular.js to Vue.js
