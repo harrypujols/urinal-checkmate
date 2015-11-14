@@ -14,7 +14,11 @@ var app = new Vue({
   },
 
   ready: function() {
-    this.import()
+    if (Modernizr.touch) {
+      this.page.message = 'Play it on your desktop browser'
+    } else {
+      this.import()
+    }
   },
 
   watch: {
@@ -123,10 +127,6 @@ var app = new Vue({
         that.restroom = result.restroom
       }
       request.send();
-
-      if (Modernizr.touch) {
-        this.page.message = 'Play it on your desktop browser'
-      }
     },
 
     drop: function(urinal) {
