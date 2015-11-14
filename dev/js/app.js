@@ -38,7 +38,10 @@ var app = new Vue({
     },
 
     'stage': function() {
-      this.urinals = this.restroom[this.stage].urinals
+      if (typeof null == 'object') {
+        this.urinals = this.restroom[this.stage].urinals
+        return this.urinals
+      }
     }
   },
 
@@ -142,13 +145,13 @@ var app = new Vue({
     },
 
     continue: function() {
-      this.stage++
-
-      if (this.stage == this.restroom.length) {
-        this.stage = this.restroom.length
+      var last = this.restroom.length - 1
+      if (this.stage >= last) {
+        this.stage = last
         this.endgame = true
         this.page.message = 'Game Over'
       } else {
+        this.stage++
         this.reload = false
         this.attempt = 0
         this.import()
