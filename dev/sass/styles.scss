@@ -16,6 +16,10 @@ $man-width: 65px;
    clear: both;
  }
 
+ [v-cloak] {
+   display: none;
+ }
+
 .container {
   max-width: 780px;
   margin: 0 auto;
@@ -36,7 +40,7 @@ $man-width: 65px;
   margin: 40px 0;
 }
 
-[id=drag] {
+[id=man] {
   cursor: -webkit-grab;
   cursor: -moz-grab;
 
@@ -63,7 +67,7 @@ $man-width: 65px;
   height: $urinal-size;
 }
 
-.start-position {
+[id=start-position] {
   margin-top: 100px;
 }
 
@@ -104,9 +108,5 @@ $man-width: 65px;
     display: block;
     width: 40px;
     margin: 0 auto;
-  }
-
-  span {
-    @extend %ir;
   }
 }
