@@ -10,12 +10,6 @@ $man-width: 65px;
 
 /* User Styles
    ========================================================================== */
- %clearfix:after {
-   content: "";
-   display: table;
-   clear: both;
- }
-
  [v-cloak] {
    display: none;
  }
@@ -51,14 +45,10 @@ $man-width: 65px;
 }
 
 .restroom {
-  @extend %clearfix;
+  display: flex;
   padding: 0;
   list-style: none;
   margin: 0 auto;
-
-  li {
-    float: left;
-  }
 }
 
 .urinal {
