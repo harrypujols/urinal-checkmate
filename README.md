@@ -1,7 +1,7 @@
 URINAL CHECKMATE
 ================
 
-[![David Link](https://david-dm.org/harrypujols/gulp.png)](https://david-dm.org/harrypujols/urinal-chess)
+[![David Link](https://david-dm.org/harrypujols/urinal-checkmate.png)](https://david-dm.org/harrypujols/urinal-checkmate)
 
 The Number One game about Number One.
 
