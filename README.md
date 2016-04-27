@@ -1,7 +1,7 @@
 URINAL CHECKMATE
 ================
 
-[![David Link](https://david-dm.org/harrypujols/urinal-checkmate.png)](https://david-dm.org/harrypujols/urinal-checkmate)
+[![devDependency Status](https://david-dm.org/harrypujols/urinal-checkmate/dev-status.svg)](https://david-dm.org/harrypujols/urinal-checkmate#info=devDependencies)
 
 The Number One game about Number One.
 
