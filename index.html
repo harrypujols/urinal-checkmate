@@ -12,7 +12,7 @@
         {{ page.message }}
       </h1>
       <div v-if="endgame == false">
-        <ul class="restroom" v-bind:style="{ width: urinals * 100 + 'px'}">
+        <ul class="restroom" v-bind:style="{ width: urinals * 6.25 + 'rem'}">
           <li
             class="urinal"
             v-for="n in urinals"
