@@ -10,9 +10,9 @@ $man-width: 65px;
 
 /* User Styles
    ========================================================================== */
- [v-cloak] {
-   display: none;
- }
+[v-cloak] {
+  display: none;
+}
 
 .container {
   max-width: 780px;
@@ -20,9 +20,9 @@ $man-width: 65px;
 }
 
 .message {
-	font-size: 100px;
-	text-transform: uppercase;
-	text-align: center;
+  font-size: 100px;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .alert {
@@ -34,7 +34,7 @@ $man-width: 65px;
   margin: 40px 0;
 }
 
-[id=man] {
+[id="man"] {
   cursor: -webkit-grab;
   cursor: -moz-grab;
 
@@ -52,19 +52,19 @@ $man-width: 65px;
 }
 
 .urinal {
-  background: image-url('urinal.svg') no-repeat;
+  background: image-url("urinal.svg") no-repeat;
   width: $urinal-size;
   height: $urinal-size;
 }
 
-[id=start-position] {
+[id="start-position"] {
   margin-top: 100px;
 }
 
 .man {
-	width: $man-width;
+  width: $man-width;
   height: auto;
-	margin: 0 auto;
+  margin: 0 auto;
 
   .regular & {
     fill: $black;
@@ -93,7 +93,7 @@ $man-width: 65px;
   }
 }
 
-.twitter {
+.blsky {
   svg {
     display: block;
     width: 40px;
