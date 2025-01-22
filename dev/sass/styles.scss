@@ -5,8 +5,8 @@
 $black: #000000;
 $white: #ffffff;
 $red: red;
-$urinal-size: 100px;
-$man-width: 65px;
+$urinal-size: 6.25rem;
+$man-width: 4.063rem;
 
 /* User Styles
    ========================================================================== */
@@ -15,12 +15,12 @@ $man-width: 65px;
 }
 
 .container {
-  max-width: 780px;
+  max-width: 48.75rem;
   margin: 0 auto;
 }
 
 .message {
-  font-size: 100px;
+  font-size: 6.25rem;
   text-transform: uppercase;
   text-align: center;
 }
@@ -31,7 +31,7 @@ $man-width: 65px;
 
 .score {
   text-align: center;
-  margin: 40px 0;
+  margin: 2.5rem 0;
 }
 
 [id="man"] {
@@ -58,7 +58,7 @@ $man-width: 65px;
 }
 
 [id="start-position"] {
-  margin-top: 100px;
+  margin-top: 6.25rem;
 }
 
 .man {
@@ -77,12 +77,12 @@ $man-width: 65px;
 
 .button {
   background: $white;
-  border: 2px solid $black;
-  border-radius: 5px;
-  width: 100px;
+  border: 0.125rem solid $black;
+  border-radius: 0.313rem;
+  width: 6.25rem;
   display: block;
-  margin: 5px auto;
-  padding: 5px;
+  margin: 0.313rem auto;
+  padding: 0.313rem;
   text-align: center;
   text-decoration: none;
   color: $black;
@@ -96,7 +96,7 @@ $man-width: 65px;
 .blsky {
   svg {
     display: block;
-    width: 40px;
+    width: 2.5rem;
     margin: 0 auto;
   }
 }
