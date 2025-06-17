@@ -2,11 +2,11 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "build/css"
+css_dir = "docs/css"
 sass_dir = "dev/sass"
-images_dir = "build/img"
-javascripts_dir = "build/js"
-fonts_dir = "build/fonts"
+images_dir = "docs/img"
+javascripts_dir = "docs/js"
+fonts_dir = "docs/fonts"
 
 output_style = :expanded
 environment = :development
