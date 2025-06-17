@@ -416,12 +416,9 @@ th {
 }
 
 .restroom {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  gap: 6.25rem;
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 6.25rem;
 }
 
 .urinals {
