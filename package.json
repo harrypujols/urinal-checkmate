@@ -27,6 +27,6 @@
     "watch:concat": "chokidar 'dev/js/libraries/*.js' -c 'npm run concat:js'",
     "watch:sass": "chokidar 'dev/sass/**/*.scss' -c 'npm run sass'",
     "watch": "npm-run-all --parallel watch:*",
-    "start": "npm run build && npm run serve"
+    "start": "npm run build && npm-run-all --parallel serve watch:*"
   }
 }

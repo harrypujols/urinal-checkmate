@@ -31,7 +31,7 @@ $man-width: 4.063rem;
 
 .score {
   text-align: center;
-  margin: 2.5rem 0;
+  margin-block: 0;
 }
 
 [id="man"] {
@@ -46,6 +46,15 @@ $man-width: 4.063rem;
 
 .restroom {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  gap: 6.25rem;
+}
+
+.urinals {
+  display: flex;
   padding: 0;
   list-style: none;
   margin: 0 auto;
@@ -55,10 +64,6 @@ $man-width: 4.063rem;
   background: url("/img/urinal.svg") no-repeat;
   width: $urinal-size;
   height: $urinal-size;
-}
-
-[id="start-position"] {
-  margin-top: 6.25rem;
 }
 
 .man {
@@ -91,6 +96,10 @@ $man-width: 4.063rem;
     background: $black;
     color: $white;
   }
+}
+
+.sharing {
+  padding-block: 2rem;
 }
 
 .blsky {

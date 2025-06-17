@@ -11,8 +11,8 @@
       <h1 class="{{ page.message == 'wrong' ? 'message alert' : 'message' }}">
         {{ page.message }}
       </h1>
-      <div v-if="endgame == false">
-        <ul class="restroom" v-bind:style="{ width: urinals * 100 + 'px'}">
+      <div v-if="endgame == false" class="restroom">
+        <ul class="urinals" v-bind:style="{ width: urinals * 100 + 'px'}">
           <li
             class="urinal"
             v-for="n in urinals"
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-    <div class="container" v-if="endgame == true">
+    <div class="container score" v-if="endgame == true">
       <h2 class="score">
         You scored {{ score }} out of {{ restroom.length }} checkmates.
       </h2>
