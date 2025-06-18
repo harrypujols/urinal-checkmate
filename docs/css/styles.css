@@ -478,7 +478,8 @@ th {
 .rules {
   max-width: 65ch;
   padding: 1rem;
-  margin-bottom: 5rem;
+  margin-inline: auto;
+  margin-bottom: 2rem;
 }
 
 .rule {
