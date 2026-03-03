@@ -429,7 +429,7 @@ th {
 }
 
 .urinal {
-  background: url("/img/urinal.svg") no-repeat;
+  background: url("../img/urinal.svg") no-repeat;
   width: 6.25rem;
   height: 6.25rem;
 }
