@@ -52,18 +52,21 @@
       "output": "dist"
     },
     "mac": {
+      "icon": "dev/images/icons/man.icns",
       "target": [
         "dmg",
         "zip"
       ]
     },
     "win": {
+      "icon": "dev/images/man.ico",
       "target": [
         "nsis",
         "zip"
       ]
     },
     "linux": {
+      "icon": "dev/images/icons/man-512x512.png",
       "target": [
         "AppImage",
         "deb"
