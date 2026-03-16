@@ -98,3 +98,8 @@ npm run serve
 
 - If you get errors about missing folders, make sure you have run `npm install` before building or starting.
 - If you change the structure of your `dev` or `docs` folders, update the scripts in `package.json`
+
+## Electron Publishing
+
+Run `npm run electron` to test.
+To distribute `npm run dist:mac` and `npm run dist:linux`
