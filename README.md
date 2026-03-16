@@ -102,4 +102,4 @@ npm run serve
 ## Electron Publishing
 
 Run `npm run electron` to test.
-To distribute `npm run dist:mac` and `npm run dist:linux`
+To distribute `npm run dist:mac`, `npm run dist:win` and `npm run dist:linux`
